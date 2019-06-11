@@ -1,0 +1,29 @@
+{
+  "name": "nicer00ster",
+  "version": "1.0.0",
+  "description": "Alex Busch -- Portfolio",
+  "main": "index.js",
+  "author": "Alex Busch",
+  "license": "ISC",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "express": "^4.17.1",
+    "next": "^8.1.0",
+    "next-offline": "^4.0.2",
+    "node-sass": "^4.12.0",
+    "nookies": "^2.0.6",
+    "nprogress": "^0.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0",
+    "three": "^0.104.0"
+  },
+  "devDependencies": {
+    "babel-plugin-inline-react-svg": "^1.1.0"
+  }
+}
