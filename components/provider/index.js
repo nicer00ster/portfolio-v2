@@ -8,7 +8,6 @@ function AppProvider(props) {
     const [isMenuScrolled, setIsMenuScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [width, setWidth] = useState(769);
-    const [height, setHeight] = useState(0);
 
     function updateWindowDimensions() {
         if(width <= 768) {
@@ -18,7 +17,6 @@ function AppProvider(props) {
             setMenuOpen(false);
         }
         setWidth(window.innerWidth);
-        setHeight(window.innerHeight);
     }
 
     useEffect(() => {
@@ -59,7 +57,6 @@ function AppProvider(props) {
                     isMenuScrolled: isMenuScrolled,
                     menuOpen: menuOpen,
                     width: width,
-                    height: height,
                 },
                 setMenuOpen: (e) => handleMenuClick(e),
             }}>

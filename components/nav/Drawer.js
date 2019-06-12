@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { AppContext } from '../provider';
 import {
     StyledDrawer,
-    StyledDrawerGrid,
+    StyledDrawerBackground,
     StyledDrawerList,
 } from './nav.styles';
 import SocialSharing from '../kit/social';
@@ -12,8 +12,8 @@ function Drawer() {
     const { state } = useContext(AppContext);
     return (
         <StyledDrawer menuOpen={state.menuOpen}>
-            <StyledDrawerGrid
-                rotate="0deg"
+            <StyledDrawerBackground
+                rotate="-12deg"
                 menuOpen={state.menuOpen}
                 scheme={{
                     'first': '#535c68',
@@ -21,8 +21,7 @@ function Drawer() {
                     'third': '#c7ecee',
                     'fourth': '#dff9fb',
                 }}>
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((element, key) => <div key={key} className="stripe" />)}
-            </StyledDrawerGrid>
+            </StyledDrawerBackground>
             <StyledDrawerList>
                 <ActiveLink href="/">Home</ActiveLink>
                 <ActiveLink href="/projects">Projects</ActiveLink>

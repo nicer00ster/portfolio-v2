@@ -12,6 +12,7 @@ const StyledCard = styled.div`
   border-radius: 3px;
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.effects.shadow};
+  transition: all .25s ease;
   &:hover, &:active {
     box-shadow: ${props => props.theme.effects.shadowHover};
   }
@@ -68,10 +69,16 @@ const StyledProjectCard = styled(StyledCard)`
       &:before {
         opacity: .01;
         clip-path: polygon(0 0, 100% 0, 100% calc(55%), 0% 55%);
+        ${props => props.theme.mediaQuery.tablet`
+            clip-path: polygon(0 0, 100% 0, 100% calc(75% - 8vw), 0% 75%);
+        `};
       }
       & .card-image {
         filter: contrast(100%);
         clip-path: polygon(0 0, 100% 0, 100% calc(55%), 0% 55%);
+        ${props => props.theme.mediaQuery.tablet`
+            clip-path: polygon(0 0, 100% 0, 100% calc(75% - 8vw), 0% 75%);
+        `};
       }
       & .card-text, .card-tooling {
         transform: translateY(200px);
