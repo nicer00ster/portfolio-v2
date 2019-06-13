@@ -32,13 +32,19 @@ const colors = {
     grey: '#cacacc',
     white: '#fefefe',
     yellow: '#ffeaa7',
+    scheme: {
+        first: '#535c68',
+        second: '#95afc0',
+        third: '#c7ecee',
+        fourth: '#dff9fb',
+    },
 };
 
 const effects = {
     hover: 'rgba(31, 34, 46, 0.25)',
     shadow: '0px 5px 25px 0px rgba(46, 61, 73, 0.2)',
     shadowHover: '2px 4px 8px 0px rgba(46, 61, 73, 0.2);',
-    radius: '0.375rem',
+    radius: '0.275rem',
 };
 
 const mediaQuery = Object.keys(breakpoints).reduce((acc, label) => {
@@ -82,6 +88,10 @@ const GlobalStyles = createGlobalStyle`
     a {
       text-decoration: none;
       color: ${colors.black};
+    }
+    ::selection {
+      color: ${colors.white};
+      background: ${colors.lightBlack};
     }
 `;
 

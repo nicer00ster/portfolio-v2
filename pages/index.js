@@ -1,9 +1,5 @@
-import dynamic from 'next/dynamic';
-
-const Container = dynamic(() => import('../components/kit/container'), {
-    loading: () => 'Loading'
-});
-const Card = dynamic(() => import('../components/kit/card'));
+import Container from '../components/kit/container';
+import Card from '../components/kit/card';
 
 function Home() {
     return (

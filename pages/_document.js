@@ -26,7 +26,7 @@ export default class CustomDocument extends Document {
                 )
             }
         } finally {
-            sheet.seal()
+            sheet.seal();
         }
     }
     render() {

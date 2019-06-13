@@ -14,13 +14,7 @@ function Drawer() {
         <StyledDrawer menuOpen={state.menuOpen}>
             <StyledDrawerBackground
                 rotate="-12deg"
-                menuOpen={state.menuOpen}
-                scheme={{
-                    'first': '#535c68',
-                    'second': '#95afc0',
-                    'third': '#c7ecee',
-                    'fourth': '#dff9fb',
-                }}>
+                menuOpen={state.menuOpen}>
             </StyledDrawerBackground>
             <StyledDrawerList>
                 <ActiveLink href="/">Home</ActiveLink>

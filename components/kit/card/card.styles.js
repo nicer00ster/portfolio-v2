@@ -9,7 +9,7 @@ const StyledCard = styled.div`
   min-height: 400px;
   max-width: 250px;
   min-width: 225px;
-  border-radius: 3px;
+  border-radius: ${props => props.theme.effects.radius};
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.effects.shadow};
   transition: all .25s ease;
@@ -17,7 +17,7 @@ const StyledCard = styled.div`
     box-shadow: ${props => props.theme.effects.shadowHover};
   }
   ${props => props.theme.mediaQuery.phone`
-    max-width: 300px;
+    max-width: 350px;
   `};
 `;
 

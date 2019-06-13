@@ -132,8 +132,8 @@ const StyledDrawerBackground = styled.div`
     height: 100vh;
     background-image: repeating-linear-gradient(
                       ${props => props.rotate},
-                      ${props => props.scheme.third},
-                      ${props => props.scheme.third},
+                      ${props => props.theme.colors.scheme.third},
+                      ${props => props.theme.colors.scheme.third},
                       ${props => props.theme.colors.white} 3px,
                       ${props => props.theme.colors.white} 60px);
 `;

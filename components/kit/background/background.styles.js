@@ -28,72 +28,72 @@ const StyledBackground = styled.div`
             &:nth-of-type(1) {
                 grid-row: -2;
                 grid-column: 14 / span 2;
-                border: 1px solid ${props => props.scheme.second};
+                border: 1px solid ${props => props.theme.colors.scheme.second};
             }
             &:nth-of-type(2) {
                 grid-row: -2;
                 grid-column: 14 / span 2;
-                background-color: ${props => props.scheme.first};
+                background-color: ${props => props.theme.colors.scheme.first};
                 transform: translate(-8px, 8px);
             }
             &:nth-of-type(3) {
                 grid-row: -4;
                 grid-column: 12 / span 4;
-                border: 1px solid ${props => props.scheme.second}; 
+                border: 1px solid ${props => props.theme.colors.scheme.second}; 
                 transform: translate(-8px, 8px);
             }
             &:nth-of-type(4) {
                 grid-row: -4;
                 grid-column: 12 / span 4;
-                background-color: ${props => props.scheme.third};
+                background-color: ${props => props.theme.colors.scheme.third};
             }
             &:nth-of-type(5) {
                 grid-row: -2;
                 grid-column: 10 / span 2;
-                background-color: ${props => props.scheme.second};
+                background-color: ${props => props.theme.colors.scheme.second};
             }
             &:nth-of-type(6) {
                 grid-row: -2;
                 grid-column: 6 / span 3;
-                background-color: ${props => props.scheme.first};
+                background-color: ${props => props.theme.colors.scheme.first};
             }
             &:nth-of-type(7) {
                 grid-row: -3;
                 grid-column: 10 / span 1;
-                background-color: ${props => props.scheme.third};
+                background-color: ${props => props.theme.colors.scheme.third};
             }
             &:nth-of-type(8) {
                 grid-row: -3;
                 grid-column: 6 / span 1;
-                background-color: ${props => props.scheme.fourth};
+                background-color: ${props => props.theme.colors.scheme.fourth};
             }
             &:nth-of-type(9) {
                 grid-row: 0;
                 grid-column: 6 / span 1;
-                background-color:${props => props.scheme.third};
+                background-color:${props => props.theme.colors.scheme.third};
             }
             &:nth-of-type(10) {
                 grid-row: 1;
                 grid-column: 6 / span 4;
-                background-color: ${props => props.scheme.first};
+                background-color: ${props => props.theme.colors.scheme.first};
             }
             &:nth-of-type(11) {
                 grid-row: 4;
                 grid-column: 6 / span 2;
-                background-color: ${props => props.scheme.second};
+                background-color: ${props => props.theme.colors.scheme.second};
                 transform: translate(-8px, 8px);
                 z-index: -1;
             }
             &:nth-of-type(12) {
                 grid-row: 4;
                 grid-column: 6 / span 2;
-                border: 1px solid ${props => props.scheme.first};
+                border: 1px solid ${props => props.theme.colors.scheme.first};
                 z-index: -1;
             }
             &:nth-of-type(13) {
                 grid-row: 2;
                 grid-column: 13 / span 3;
-                background-color: ${props => props.scheme.second};
+                background-color: ${props => props.theme.colors.scheme.second};
             }
         }
     }

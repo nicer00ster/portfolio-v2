@@ -3,7 +3,7 @@ import React, { useState, useEffect, createContext } from 'react';
 const AppContext = createContext();
 
 function AppProvider(props) {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [isMenuScrolled, setIsMenuScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -21,7 +21,6 @@ function AppProvider(props) {
 
     useEffect(() => {
         updateWindowDimensions();
-        setIsLoading(false);
 
         window.addEventListener('resize', updateWindowDimensions);
         window.addEventListener('scroll', handleScroll);
@@ -41,11 +40,16 @@ function AppProvider(props) {
         if(window.scrollY === 0) {
             setIsMenuScrolled(false);
         }
-    };
+    }
 
     function handleMenuClick(e) {
         e.preventDefault();
         setMenuOpen(!menuOpen);
+    }
+
+    function handleLoading(e) {
+        e.preventDefault();
+        setIsLoading(!isLoading);
     }
 
     return (
@@ -59,6 +63,7 @@ function AppProvider(props) {
                     width: width,
                 },
                 setMenuOpen: (e) => handleMenuClick(e),
+                setIsLoading: (e) => handleLoading(e),
             }}>
             {props.children}
         </AppContext.Provider>
