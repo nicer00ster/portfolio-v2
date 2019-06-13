@@ -7,8 +7,8 @@ const StyledCard = styled.div`
   width: 100%;
   margin: 1rem;
   min-height: 400px;
-  max-width: 250px;
   min-width: 225px;
+  max-width: 350px;
   border-radius: ${props => props.theme.effects.radius};
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.effects.shadow};
@@ -26,6 +26,7 @@ const StyledProjectCard = styled(StyledCard)`
   justify-content: flex-end;
   align-items: center;
   position: relative;
+  max-width: 250px;
   cursor: pointer;
   bottom: 0;
   overflow: hidden;
