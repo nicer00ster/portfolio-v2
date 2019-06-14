@@ -10,7 +10,7 @@ const LayoutStyles = styled.main`
   position: relative;
   transition: all 0.25s linear;
   opacity: ${props => props.menuOpen ? '0.4' : '1'};
-  //transform: ${props => props.menuOpen ? 'scale(0.95)' : ''};
+  transform: ${props => props.menuOpen ? 'scale(0.95)' : ''};
   overflow: ${props => props.menuOpen ? 'hidden' : ''};
   pointer-events: ${props => props.menuOpen ? 'none' : 'all'};
   ${props => props.theme.mediaQuery.tablet`

@@ -6,7 +6,9 @@ import Section from '../components/kit/section';
 function Home() {
     return (
         <Container>
-            <Hero>
+            <Hero
+                heading="Alex Busch"
+                subheading="Highly proficient in fully responsive design and a strong passion for clean, maintainable code that scales.">
                 <Card />
                 <Card />
                 <Card />

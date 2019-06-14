@@ -12,6 +12,7 @@ const StyledSection = styled.section`
 const StyledSectionChildren = styled.div`
   display: flex;
   justify-content: ${props => props.position === 'right' ? 'flex-end' : 'flex-start'};
+  flex-wrap: wrap;
   width: 100%;
 `;
 
