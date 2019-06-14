@@ -13,6 +13,7 @@ function Meta() {
             <link rel="manifest" href="/static/manifest.json" />
             <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
             <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+            <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
             <title>Alex Busch</title>
         </Head>
     );

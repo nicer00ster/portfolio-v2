@@ -9,7 +9,10 @@ const loading = keyframes`
   }
 `;
 
-const StyledForm = styled.form`
+const StyledForm = styled.form.attrs(props => ({
+    "data-aos": props.fade,
+    "data-aos-duration": props.duration,
+}))`
   width: 50%;
   margin: 1rem;
   box-shadow: ${props => props.theme.effects.shadow};

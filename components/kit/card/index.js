@@ -12,7 +12,7 @@ import Arrow from '../../../static/icons/arrow.svg';
 function Card(props) {
     if(props.type === 'project') {
         return (
-            <StyledProjectCard>
+            <StyledProjectCard fade={props.fade} duration={props.duration}>
                 <StyledCardImage src={props.src} alt={props.alt} className="card-image"/>
                 <StyledCardContent className="card-content">
                     <StyledCardText className="card-text">{props.title}</StyledCardText>
@@ -27,7 +27,7 @@ function Card(props) {
         );
     }
     return (
-        <StyledCard>
+        <StyledCard fade={props.fade} duration={props.duration}>
 
         </StyledCard>
     );

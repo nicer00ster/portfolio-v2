@@ -14,10 +14,10 @@ function Home() {
                 <Card />
             </Hero>
             <Section position="right" rotate="12deg">
-                <Card />
+                <Card fade="fade-left"/>
             </Section>
             <Section position="left" rotate="-12deg">
-                <Card />
+                <Card fade="fade-right" />
             </Section>
         </Container>
     );

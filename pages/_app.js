@@ -1,5 +1,6 @@
 import App, { Container } from 'next/app';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
+
 import Intro from '../components/intro';
 import Layout from '../components/layout';
 import AppProvider from '../components/provider';

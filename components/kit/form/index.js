@@ -37,7 +37,7 @@ function Form() {
     };
 
     return (
-        <StyledForm onSubmit={handleSubmit}>
+        <StyledForm fade="fade-left" duration="250" onSubmit={handleSubmit}>
             <fieldset disabled={state.isLoading} aria-busy={state.isLoading}>
                 <StyledInput>
                     <input

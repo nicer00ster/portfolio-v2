@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-const StyledCard = styled.div`
+const StyledCard = styled.div.attrs(props => ({
+    "data-aos": props.fade,
+    "data-aos-duration": props.duration,
+}))`
   position: relative;
   display: flex;
   flex: 1;

@@ -1,5 +1,6 @@
-import { useContext } from 'react';
-import { ThemeProvider, createGlobalStyle, css } from 'styled-components';
+import { useState, useEffect, useContext } from 'react';
+import { ThemeProvider } from 'styled-components';
+import AOS from "aos";
 
 import Meta from '../meta';
 import Nav from '../nav';
@@ -25,6 +26,17 @@ const theme = {
 
 function Layout(props) {
     const { state } = useContext(AppContext);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        AOS.init();
+        AOS.refresh();
+
+        return function unmounted() {
+            setIsMounted(false);
+        }
+    });
 
     return (
       <ThemeProvider theme={theme}>

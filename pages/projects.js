@@ -20,6 +20,8 @@ function Projects() {
             </Hero>
             <Section position="right" rotate="12deg">
                 <Card
+                    fade="zoom-in-up"
+                    duration="250"
                     type="project"
                     src="../static/images/icon-worldwide.png"
                     title="ICON Worldwide"
@@ -27,6 +29,8 @@ function Projects() {
                     link="https://icon-worldwide.com/"
                     alt="ICON Worldwide Website" />
                 <Card
+                    fade="zoom-in-up"
+                    duration="500"
                     type="project"
                     src="../static/images/fs-blog.png"
                     title="Frankfurt School Blog"
@@ -34,6 +38,8 @@ function Projects() {
                     link="https://blog.frankfurt-school.de/"
                     alt="Frankfurt School Blog" />
                 <Card
+                    fade="zoom-in-up"
+                    duration="750"
                     type="project"
                     src="../static/images/darknet.jpg"
                     title="DARKNET.FM"
@@ -41,6 +47,8 @@ function Projects() {
                     link="https://darknetfm-tfokbsdagq.now.sh/"
                     alt="DARKNET.FM" />
                 <Card
+                    fade="zoom-in-up"
+                    duration="1000"
                     type="project"
                     src="../static/images/darknet.jpg"
                     title="DARKNET.FM (Mobile)"
@@ -48,6 +56,8 @@ function Projects() {
                     link="https://play.google.com/store/apps/details?id=com.lofimedia&hl=en"
                     alt="DARKNET.FM (Mobile)" />
                 <Card
+                    fade="zoom-in-up"
+                    duration="250"
                     type="project"
                     src="../static/images/i2m.png"
                     title="I2M (Mobile)"
@@ -55,6 +65,8 @@ function Projects() {
                     link="https://github.com/nicer00ster/i2m-mobile-app"
                     alt="I2M (Mobile)" />
                 <Card
+                    fade="zoom-in-up"
+                    duration="500"
                     type="project"
                     src="../static/images/pitchventure.png"
                     title="Pitch Venture Group"
@@ -62,6 +74,8 @@ function Projects() {
                     link="https://letslaunch.com/"
                     alt="Pitch Venture Group LLC" />
                 <Card
+                    fade="zoom-in-up"
+                    duration="750"
                     type="project"
                     src="../static/images/cc-creamery.png"
                     title="Conscious Cultures Creamery"
