@@ -5,6 +5,7 @@ const StyledSection = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: auto;
   margin: 25vh 2rem;
 `;
 

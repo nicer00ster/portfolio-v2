@@ -1,5 +1,5 @@
-import { useState, useRef, useContext } from 'react';
-import { useSpring, useTransition, useChain, config } from 'react-spring';
+import { useState, useRef, useContext, useCallback } from 'react';
+import { useSpring, useTransition, useChain, config, interpolate, animated } from 'react-spring';
 
 import { StyledAnimatedContainer } from '../card.styles';
 import Card from "../index";
@@ -17,11 +17,9 @@ function AnimatedCards() {
         config: config.stiff,
         from: {
             size: '50%',
-            minHeight: 200,
         },
         to: {
             size: open ? '100%' : '50%',
-            minHeight: open ? 400 : 200,
         },
     });
 
@@ -66,7 +64,7 @@ function AnimatedCards() {
                 <Card
                     type="project"
                     key={key}
-                    style={{ ...props, minHeight, transform: !open && `translate(0px, ${key * 32}px)` }}
+                    style={{ ...props, transform: !open && `translate(0px, ${key * 32}px)` }}
                     title={item.title}
                     description={item.description}
                     alt={item.title}

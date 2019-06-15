@@ -190,10 +190,6 @@ const StyledAnimatedContainer = styled(animated.div)`
   display: grid;
   grid-template-columns: repeat(3, minmax(150px, 1fr));
   grid-gap: 24px;
-  // padding: 24px;
-  //margin: 2rem;
-  // background: ${props => props.theme.colors.white};
-  // box-shadow: ${props => props.theme.effects.shadow};
   cursor: pointer;
   will-change: width, height;
   ${props => props.theme.mediaQuery.tablet`

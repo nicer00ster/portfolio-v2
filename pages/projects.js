@@ -4,9 +4,7 @@ import Hero from '../components/kit/hero';
 import Container from '../components/kit/container';
 import Section from '../components/kit/section';
 import Card from '../components/kit/card';
-import {StyledAnimatedContainer} from '../components/kit/card/card.styles';
 import AnimatedCards from '../components/kit/card/animation';
-import data from '../static/projectData';
 
 function Projects() {
     return (

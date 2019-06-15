@@ -6,19 +6,17 @@ const StyledButton = styled.button`
   outline: 0;
   cursor: pointer;
   pointer-events: ${props => props.loading ? 'none' : 'all'};
-  box-shadow: ${props => props.theme.effects.shadow};
+  box-shadow: ${props => props.theme.effects.shadowHover};
 `;
 
 const StyledButtonLink = styled.a`
   display: block;
   padding: 12px 24px;
-  // border: 1px solid ${props => props.theme.colors.black};
   border-radius: ${props => props.theme.effects.radius};
   transition: all 0.15s ease;
   position: relative;
   overflow: hidden;
   top: 0;
-  box-shadow: ${props => props.theme.effects.shadow};
   
   &:before {
     content: "";
@@ -53,8 +51,6 @@ const StyledButtonLink = styled.a`
   
   &.active, &:hover {
     color: ${props => props.theme.colors.white};
-    //border: 1px solid ${props => props.theme.colors.black};
-    box-shadow: ${props => props.theme.effects.shadowHover};
     z-index: 1;
     &:before {
       top: -35%;
