@@ -5,16 +5,20 @@ const StyledButton = styled.button`
   padding: 0;
   outline: 0;
   cursor: pointer;
+  pointer-events: ${props => props.loading ? 'none' : 'all'};
+  box-shadow: ${props => props.theme.effects.shadow};
 `;
 
 const StyledButtonLink = styled.a`
   display: block;
   padding: 12px 24px;
-  border: 1px solid ${props => props.theme.colors.black};
+  // border: 1px solid ${props => props.theme.colors.black};
   border-radius: ${props => props.theme.effects.radius};
-  transition: all 0.35s ease;
+  transition: all 0.15s ease;
   position: relative;
   overflow: hidden;
+  top: 0;
+  box-shadow: ${props => props.theme.effects.shadow};
   
   &:before {
     content: "";
@@ -32,23 +36,25 @@ const StyledButtonLink = styled.a`
   }
   
   &:after {
-    content: "";
+    display: block;
     position: absolute;
-    left: 55%;
-    transform: translateX(-50%)scaleY(1)scaleX(1.45);
-    top: 180%;
     width: 160%;
     height: 190%;
+    left: 55%;
+    top: 180%;
+    content: "";
+    box-shadow: rgba(0,0,0,0);
     background-color: ${props => props.theme.colors.white};
     border-radius: 50%;
-    display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55,0,0.1,1);
+    transform: translateX(-50%)scaleY(1)scaleX(1.45);
     z-index: -1;
   }
   
-  &:hover {
+  &.active, &:hover {
     color: ${props => props.theme.colors.white};
-    border: 1px solid ${props => props.theme.colors.black};
+    //border: 1px solid ${props => props.theme.colors.black};
+    box-shadow: ${props => props.theme.effects.shadowHover};
     z-index: 1;
     &:before {
       top: -35%;
@@ -61,6 +67,9 @@ const StyledButtonLink = styled.a`
       background-color: ${props => props.theme.colors.lightBlack};
       transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
     }
+  }
+  &:active {
+    top: 2px;
   }
 `;
 

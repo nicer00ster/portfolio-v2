@@ -5,13 +5,19 @@ const StyledSection = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 25vh;
-  margin-bottom: 25vh;
+  margin: 25vh 2rem;
 `;
 
 const StyledSectionChildren = styled.div`
   display: flex;
-  justify-content: ${props => props.position === 'right' ? 'flex-end' : 'flex-start'};
+  justify-content: ${props => (
+    props.position === 'left' && 'flex-end'
+  ) || (
+    props.position === 'right' && 'flex-start'
+  ) || (
+    props.position === 'center' && 'center'  
+  )};
+  align-items: center;
   flex-wrap: wrap;
   width: 100%;
 `;
@@ -42,35 +48,35 @@ const StyledSectionBackground = styled.div`
             transition: width 0.25s linear;
             width: ${props => props.menuOpen ? '50%' : '100%'};
             &:nth-of-type(1) {
-                grid-row: ${props => props.position === 'right' ? '9' : '9'};
-                grid-column: ${props => props.position === 'right' ? '10 / span 6' : '6 / span 2'};
+                grid-row: ${props => props.position === 'left' ? '9' : '9'};
+                grid-column: ${props => props.position === 'left' ? '10 / span 6' : '6 / span 2'};
                 border: 1px solid ${props => props.theme.colors.scheme.second};
             }
             &:nth-of-type(2) {
-                grid-row: ${props => props.position === 'right' ? '9' : '9'};
-                grid-column: ${props => props.position === 'right' ? '10 / span 6' : '6 / span 2'};
+                grid-row: ${props => props.position === 'left' ? '9' : '9'};
+                grid-column: ${props => props.position === 'left' ? '10 / span 6' : '6 / span 2'};
                 background-color: ${props => props.theme.colors.scheme.first};
                 transform: translate(-8px, 8px);
             }
             &:nth-of-type(3) {
-                grid-row: ${props => props.position === 'right' ? '7' : '7'};
-                grid-column: ${props => props.position === 'right' ? '11 / span 4' : '9 / span 4'};
+                grid-row: ${props => props.position === 'left' ? '7' : '7'};
+                grid-column: ${props => props.position === 'left' ? '11 / span 4' : '9 / span 4'};
                 border: 1px solid ${props => props.theme.colors.scheme.second}; 
                 transform: translate(-8px, 8px);
             }
             &:nth-of-type(4) {
-                grid-row: ${props => props.position === 'right' ? '7' : '7'};
-                grid-column: ${props => props.position === 'right' ? '11 / span 4' : '9 / span 4'};
+                grid-row: ${props => props.position === 'left' ? '7' : '7'};
+                grid-column: ${props => props.position === 'left' ? '11 / span 4' : '9 / span 4'};
                 background-color: ${props => props.theme.colors.scheme.third};
             }
             &:nth-of-type(5) {
-                grid-row: ${props => props.position === 'right' ? '5' : '5'};
-                grid-column: ${props => props.position === 'right' ? '10 / span 2' : '6 / span 4'};
+                grid-row: ${props => props.position === 'left' ? '5' : '5'};
+                grid-column: ${props => props.position === 'left' ? '10 / span 2' : '6 / span 4'};
                 background-color: ${props => props.theme.colors.scheme.second};
             }
             &:nth-of-type(6) {
-                grid-row: ${props => props.position === 'right' ? '4' : '4'};
-                grid-column: ${props => props.position === 'right' ? '13 / span 3' : '6 / span 3'};
+                grid-row: ${props => props.position === 'left' ? '4' : '4'};
+                grid-column: ${props => props.position === 'left' ? '13 / span 3' : '6 / span 3'};
                 background-color: ${props => props.theme.colors.scheme.first};
             }
         }

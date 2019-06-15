@@ -39,6 +39,12 @@ function Form() {
     return (
         <StyledForm fade="fade-left" duration="250" onSubmit={handleSubmit}>
             <fieldset disabled={state.isLoading} aria-busy={state.isLoading}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '2rem' }}>
+                    <Button type="button" text="Website Design" loading={state.isLoading} />
+                    <Button type="button" text="App Design" loading={state.isLoading} />
+                    <Button type="button" text="Question" loading={state.isLoading} />
+                    <Button type="button" text="Other" loading={state.isLoading} />
+                </div>
                 <StyledInput>
                     <input
                         type="text"

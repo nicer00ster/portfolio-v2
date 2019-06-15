@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
     StyledButton,
     StyledButtonLink,
@@ -5,11 +6,13 @@ import {
 import Loading from '../loading';
 
 function Button(props) {
+    const [ isActive, setIsActive ] = useState(false);
+
     return (
-        <StyledButton type={props.type} loading={props.loading}>
-            <StyledButtonLink type={props.type}>
+        <StyledButton onClick={() => setIsActive(!isActive)} type={props.type} loading={props.loading}>
+            <StyledButtonLink type={props.type} className={isActive ? 'active' : ''}>
                 {props.loading && <Loading />}
-                <span>Get In Touch</span>
+                <span>{props.text}</span>
             </StyledButtonLink>
         </StyledButton>
     );

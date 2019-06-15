@@ -26,7 +26,7 @@ function Header() {
     return (
         <StyledHeader id="header" isMenuScrolled={state.isMenuScrolled}>
             <div className="header-container">
-                <Link href="/">
+                <Link href="/" scroll={true}>
                     <StyledLogo menuOpen={state.menuOpen}>◈</StyledLogo>
                 </Link>
                 {!state.isMobile && <Nav />}

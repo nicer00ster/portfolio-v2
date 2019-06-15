@@ -5,6 +5,7 @@ const AppContext = createContext();
 function AppProvider(props) {
     const [isLoading, setIsLoading] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [projectsOpen, setProjectsOpen] = useState(false);
     const [isMenuScrolled, setIsMenuScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [width, setWidth] = useState(769);
@@ -59,11 +60,13 @@ function AppProvider(props) {
                     isLoading: isLoading,
                     isMobile: isMobile,
                     isMenuScrolled: isMenuScrolled,
+                    projectsOpen: projectsOpen,
                     menuOpen: menuOpen,
                     width: width,
                 },
                 setMenuOpen: (e) => handleMenuClick(e),
                 setIsLoading: (e) => handleLoading(e),
+                setProjectsOpen: () => setProjectsOpen(!projectsOpen),
             }}>
             {props.children}
         </AppContext.Provider>
