@@ -1,5 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 
+const fadeInOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
+
 const StyledHeader = styled.header`
   position: ${props => props.isMenuScrolled ? 'sticky' : 'relative'};
   background-color: ${props => props.isMenuScrolled ? props.theme.colors.white : 'transparent'};
@@ -109,7 +118,6 @@ const StyledDrawer = styled.div`
     display: flex;
     align-items: center;
     width: 65%;
-    //height: 100vh;
     height: 100%;
     background-color: ${props => props.theme.colors.white};
     z-index: 99999;
@@ -119,23 +127,24 @@ const StyledDrawer = styled.div`
     bottom: 0;
     transition: transform .25s ease-in-out;
     transform: ${props => props.menuOpen ? 'translateX(0px)' : 'translateX(1200px)'};
+    &:before {
+      content: "";
+      background-color: ${props => props.theme.colors.scheme.first};
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% calc(25% - 16vw), 0% 25%); 
+    }
     ${props => props.theme.mediaQuery.phone`
         width: 85%;
     `}
 `;
 
 const StyledDrawerBackground = styled.div`
-    display: grid;
     position: absolute;
     min-width: 0;
     width: 100%;
     height: 100vh;
-    background-image: repeating-linear-gradient(
-                      ${props => props.rotate},
-                      ${props => props.theme.colors.scheme.third},
-                      ${props => props.theme.colors.scheme.third},
-                      ${props => props.theme.colors.white} 3px,
-                      ${props => props.theme.colors.white} 60px);
 `;
 
 const StyledDrawerList = styled.ul`
@@ -178,6 +187,59 @@ const StyledDrawerItem = styled.li`
     }
 `;
 
+const StyledCircle = styled.div`
+  position: relative;
+  border-radius: 100px;
+  height: ${props => props.size}px;
+  width: ${props => props.size}px;
+  animation: ${fadeInOut} ${props => props.delay} ease-in-out infinite;
+  animation-direction: alternate;
+  background-color: ${props => props.color};
+  top: ${props => props.top}%;
+  left: ${props => props.left}%;
+`;
+
+const StyledDonut = styled.div`
+  position: relative;
+  height: ${props => props.size}px;
+  width: ${props => props.size}px;
+  border: 4px solid ${props => props.color};
+  border-radius: 100px;
+  animation: ${fadeInOut} ${props => props.delay} ease-in-out infinite;
+  animation-direction: alternate;
+  top: ${props => props.top}%;
+  left: ${props => props.left}%;
+`;
+
+const StyledCross = styled.div`
+  position: relative;
+  height: ${props => props.size}px;
+  width: ${props => props.size}px;
+  border-radius: 100px;
+  transform: rotate(45deg);
+  animation: ${fadeInOut} ${props => props.delay} ease-in-out infinite;
+  animation-direction: alternate;
+  top: ${props => props.top}%;
+  left: ${props => props.left}%;
+  & .horizontal {
+    position: relative;
+    height: 33%;
+    width: 100%;
+    top: 33.4%;
+    border-radius: 100px;
+    background-color: ${props => props.color};
+  }
+  & .vertical {
+    position: relative;
+    transform: rotate(90deg);
+    height: 33%;
+    width: 100%;
+    border-radius: 100px;
+    background-color: ${props => props.color};
+  }
+`;
+
+
 export {
     StyledHeader,
     StyledNav,
@@ -188,4 +250,7 @@ export {
     StyledDrawerBackground,
     StyledDrawerList,
     StyledDrawerItem,
+    StyledCircle,
+    StyledDonut,
+    StyledCross,
 }

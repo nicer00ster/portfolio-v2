@@ -11,8 +11,8 @@ const StyledCard = styled(animated.div).attrs(props => ({
   width: 100%;
   margin: 1rem;
   min-height: 400px;
-  min-width: 225px;
-  max-width: 350px;
+  // min-width: 225px;
+  // max-width: 350px;
   border-radius: ${props => props.theme.effects.radius};
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.effects.shadow};
@@ -192,6 +192,9 @@ const StyledAnimatedContainer = styled(animated.div)`
   grid-gap: 24px;
   cursor: pointer;
   will-change: width, height;
+  &:before {
+    content: "";
+  }
   ${props => props.theme.mediaQuery.tablet`
     grid-template-columns: repeat(2, minmax(150px, 1fr));
   `}

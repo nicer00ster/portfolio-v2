@@ -79,13 +79,10 @@ const GlobalStyles = createGlobalStyle`
     body {
       background-color: ${colors.white};
       font-family: 'Raleway', sans-serif;
-      font-size: 1.25rem;
+      font-size: 1rem;
       padding: 0;
       margin: 0;
       overflow: ${props => props.menuOpen ? 'hidden' : ''};
-      ${mediaQuery.tablet`
-        font-size: 1rem;
-      `}
     }
     a {
       text-decoration: none;

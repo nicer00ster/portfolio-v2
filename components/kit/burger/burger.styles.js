@@ -29,8 +29,8 @@ const StyledBurger = styled.a`
       left: 24px;
       width: 8px;
       height: 2px;
-      background: ${props => props.theme.colors.black};
-      transition: width 0.125s ease-in-out, top 0.25s ease-in-out 0.5s, transform 0.25s ease-out 0.25s, opacity 0.125s linear 0.5s;
+      background: ${props => props.menuOpen ? props.theme.colors.white : props.theme.colors.black};
+      transition: width 0.125s ease-in-out, background 0.25s linear, top 0.25s ease-in-out 0.5s, transform 0.25s ease-out 0.25s, opacity 0.125s linear 0.5s;
     }
     &:hover {
       & div:nth-child(3) {

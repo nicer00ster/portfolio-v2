@@ -17,9 +17,12 @@ function AnimatedCards() {
         config: config.stiff,
         from: {
             size: '50%',
+            minHeight: '200px'
         },
         to: {
             size: open ? '100%' : '50%',
+            filter: open ? 'blur(0px)' : 'blur(4px)',
+            minHeight: open ? '400px' : '200px',
         },
     });
 
@@ -56,15 +59,14 @@ function AnimatedCards() {
     }
     return (
         <StyledAnimatedContainer
-            style={{ ...rest, width: size, height: size, transform: !open && 'translateX(-35px)' }}
-            data-aos="zoom-in-up"
+            style={{ ...rest, width: size, height: size, transform: !open && `rotate(10deg)` }}
             onMouseEnter={() => set(true)}
-            onMouseLeave={() => set(false)}>
+            data-aos="zoom-in-up">
             {transitions.map(({ item, key, props }) => (
                 <Card
                     type="project"
                     key={key}
-                    style={{ ...props, transform: !open && `translate(0px, ${key * 32}px)` }}
+                    style={{ ...props, minHeight, transform: !open && `translate(0px, ${key * 8}%)` }}
                     title={item.title}
                     description={item.description}
                     alt={item.title}
