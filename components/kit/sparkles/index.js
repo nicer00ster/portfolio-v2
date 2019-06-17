@@ -12,7 +12,7 @@ function Sparkles() {
             <StyledDonut color="#fefefe" size="17" top="4" left="15" delay="0.9s" />
             <StyledCircle color="#80dad3" size="6" top="5" left="25" delay="0.5s" />
             <StyledCircle color="#80dad3" size="21" top="15" left="75" delay="0.7s" />
-            <StyledCross  color="#92c5f8" rotate="45deg" size="21" top="5" left="15" delay="0.7s">
+            <StyledCross  color="#92c5f8" rotate="45deg" size="21" top="6" left="17" delay="0.7s">
                 <div className="horizontal" />
                 <div className="vertical" />
             </StyledCross>

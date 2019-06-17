@@ -7,32 +7,50 @@ import {
 import Button from '../button';
 import Sparkles from '../sparkles';
 
-const useInput = initialValue => {
+const useInput = (initialValue) => {
     const [value, setValue] = useState(initialValue);
+    const [error, setError] = useState(false);
 
     return {
         value,
         setValue,
         reset: () => setValue(""),
+        setError: (err) => setError(err),
         bind: {
             value,
             onChange: e => {
                 setValue(e.target.value);
-            }
-        }
+            },
+        },
+        hasError: error,
     };
 };
 
 function Form() {
-    const { value: name, bind: bindName, reset: resetName } = useInput('');
-    const { value: email, bind: bindEmail, reset: resetEmail } = useInput('');
-    const { value: message, bind: bindMessage, reset: resetMessage } = useInput('');
+    const { value: name, bind: bindName, reset: resetName, setError: setNameError, hasError: nameError } = useInput('', false);
+    const { value: email, bind: bindEmail, reset: resetEmail, setError: setEmailError, hasError: emailError } = useInput('', false);
+    const { value: message, bind: bindMessage, reset: resetMessage, setError: setMessageError, hasError: messageError } = useInput('', false);
     const [isLoading, setLoading] = useState(false);
 
     const handleSubmit = (e, data) => {
         e.preventDefault();
         e.persist();
         setLoading(true);
+
+        if(!data.name) {
+            setNameError(true);
+            setLoading(false);
+            return;
+        } else if(!data.email) {
+            setEmailError(true);
+            setLoading(false);
+            return;
+        } else if(!data.message) {
+            setMessageError(true);
+            setLoading(false);
+            return;
+        }
+        console.log(bindName);
         fetch('/api/contact', {
             method: 'POST',
             headers: {
@@ -41,9 +59,16 @@ function Form() {
             },
             body: JSON.stringify(data),
         }).then(res => {
-            res.status === 200 ? setLoading(false) : console.log(res)
+            if(res.status === 200) {
+                setLoading(false);
+                setNameError(false);
+                setEmailError(false);
+                setMessageError(false);
+            } else {
+                throw new Error('Something went wrong.');
+            }
         }).catch(err => {
-            console.log(err);
+            throw new Error(err);
         });
         resetName();
         resetEmail();
@@ -60,10 +85,11 @@ function Form() {
                         type="text"
                         name="name"
                         id="name"
+                        style={nameError ? { borderBottom: '1px solid tomato' } : {}}
                         {...bindName}
                     />
                     <span className="bar" />
-                    <label htmlFor="name">
+                    <label htmlFor="name" style={nameError ? { color: 'tomato' } : {}}>
                         Name
                     </label>
                 </StyledInput>
@@ -72,10 +98,11 @@ function Form() {
                         type="text"
                         name="email"
                         id="email"
+                        style={emailError ? { borderBottom: '1px solid tomato' } : {}}
                         {...bindEmail}
                     />
                     <span className="bar" />
-                    <label htmlFor="email">
+                    <label htmlFor="email" style={emailError ? { color: 'tomato' } : {}}>
                         Email
                     </label>
                 </StyledInput>
@@ -84,10 +111,11 @@ function Form() {
                         type="text"
                         name="text"
                         id="message"
+                        style={messageError ? { borderBottom: '1px solid tomato' } : {}}
                         {...bindMessage}
                     />
                     <span className="bar" />
-                    <label htmlFor="message">
+                    <label htmlFor="message" style={messageError ? { color: 'tomato' } : {}}>
                         Message
                     </label>
                 </StyledInput>

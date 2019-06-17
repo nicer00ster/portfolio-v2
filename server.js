@@ -10,8 +10,6 @@ const handle = app.getRequestHandler();
 
 const config = require('./config');
 
-console.log(config);
-
 const transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {
