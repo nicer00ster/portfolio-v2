@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';

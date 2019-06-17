@@ -19,7 +19,6 @@ const StyledForm = styled.form.attrs(props => ({
   border-radius: ${props => props.theme.effects.radius};
   background-color: ${props => props.theme.colors.white};
   line-height: 1.5;
-  
   fieldset {
     border: 0;
     padding: 1.6rem;
@@ -96,7 +95,16 @@ const StyledInput = styled.div`
   }
 `;
 
+const StyledFormHeading = styled.h2`
+    text-align: left;
+    padding: 1.2rem;
+    background-color: rgba(31,34,46,0.75);
+    color: #fefefe;
+    font-family: 'Trirong', serif;
+`;
+
 export {
     StyledForm,
     StyledInput,
+    StyledFormHeading,
 };

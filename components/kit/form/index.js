@@ -1,10 +1,11 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {
     StyledForm,
     StyledInput,
+    StyledFormHeading,
 } from './form.styles';
 import Button from '../button';
-import { AppContext } from '../../provider';
+import Sparkles from '../sparkles';
 
 const useInput = initialValue => {
     const [value, setValue] = useState(initialValue);
@@ -26,25 +27,34 @@ function Form() {
     const { value: name, bind: bindName, reset: resetName } = useInput('');
     const { value: email, bind: bindEmail, reset: resetEmail } = useInput('');
     const { value: message, bind: bindMessage, reset: resetMessage } = useInput('');
-    const { state, setIsLoading }  = useContext(AppContext);
+    const [isLoading, setLoading] = useState(false);
 
-    const handleSubmit = e => {
+    const handleSubmit = (e, data) => {
         e.preventDefault();
+        e.persist();
+        setLoading(true);
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        }).then(res => {
+            res.status === 200 ? setLoading(false) : console.log(res)
+        }).catch(err => {
+            console.log(err);
+        });
         resetName();
         resetEmail();
         resetMessage();
-        setIsLoading(e);
     };
 
     return (
-        <StyledForm fade="fade-left" duration="250" onSubmit={handleSubmit}>
-            <fieldset disabled={state.isLoading} aria-busy={state.isLoading}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '2rem' }}>
-                    <Button type="button" text="Website Design" loading={state.isLoading} />
-                    <Button type="button" text="App Design" loading={state.isLoading} />
-                    <Button type="button" text="Question" loading={state.isLoading} />
-                    <Button type="button" text="Other" loading={state.isLoading} />
-                </div>
+        <StyledForm fade="fade-left" duration="250" onSubmit={e => handleSubmit(e, { name, email, message })}>
+            <Sparkles />
+            <fieldset disabled={isLoading} aria-busy={isLoading}>
+                <StyledFormHeading>Get In Touch</StyledFormHeading>
                 <StyledInput>
                     <input
                         type="text"
@@ -81,7 +91,7 @@ function Form() {
                         Message
                     </label>
                 </StyledInput>
-                <Button type="submit" text="Get In Touch" loading={state.isLoading} />
+                <Button type="submit" text="Get In Touch" loading={isLoading} />
             </fieldset>
         </StyledForm>
     );

@@ -11,6 +11,8 @@ function Meta() {
             {/*<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png" />*/}
             {/*<link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png" />*/}
             <link rel="manifest" href="/static/manifest.json" />
+            <link rel="preload" href="/static/fonts/Raleway.ttf" as="font" type="font/ttf" crossOrigin="true" />
+            <link rel="preload" href="/static/fonts/Trirong.ttf" as="font" type="font/ttf" crossOrigin="true" />
             <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
             <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
             <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />

@@ -59,16 +59,16 @@ const mediaQuery = Object.keys(breakpoints).reduce((acc, label) => {
 }, {});
 
 const GlobalStyles = createGlobalStyle`
-    @font-face {
-      font-family: 'Raleway';
-      font-display: auto;
-      src: url('../../static/fonts/Raleway.ttf');
-    }
-    @font-face {
-      font-family: 'Trirong';
-      font-display: auto;
-      src: url('../../static/fonts/Trirong.ttf');
-    }
+     @font-face {
+       font-family: 'Raleway';
+       font-display: auto;
+       src: local('Raleway'), url('/static/fonts/Raleway.ttf') format('truetype');
+     }
+     @font-face {
+       font-family: 'Trirong';
+       font-display: auto;
+       src: local('Trirong'), url('/static/fonts/Trirong.ttf') format('truetype');
+     }
     html {
       box-sizing: border-box;
       font-size: 12px;

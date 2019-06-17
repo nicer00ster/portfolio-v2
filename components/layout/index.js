@@ -47,8 +47,8 @@ function Layout(props) {
           />
           <Nav />
           <LayoutStyles menuOpen={state.menuOpen}>
-              <GlobalStyles menuOpen={state.menuOpen} />
               <Meta />
+              <GlobalStyles menuOpen={state.menuOpen} />
               {props.children}
           </LayoutStyles>
           <Footer />
