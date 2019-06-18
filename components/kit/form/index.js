@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import {
     StyledForm,
     StyledInput,
@@ -6,6 +6,7 @@ import {
 } from './form.styles';
 import Button from '../button';
 import Sparkles from '../sparkles';
+import { AppContext } from '../../provider';
 
 const useInput = (initialValue) => {
     const [value, setValue] = useState(initialValue);
@@ -14,7 +15,10 @@ const useInput = (initialValue) => {
     return {
         value,
         setValue,
-        reset: () => setValue(""),
+        reset: () => {
+            setValue('');
+            setError(false);
+        },
         setError: (err) => setError(err),
         bind: {
             value,
@@ -27,10 +31,11 @@ const useInput = (initialValue) => {
 };
 
 function Form() {
-    const { value: name, bind: bindName, reset: resetName, setError: setNameError, hasError: nameError } = useInput('', false);
-    const { value: email, bind: bindEmail, reset: resetEmail, setError: setEmailError, hasError: emailError } = useInput('', false);
-    const { value: message, bind: bindMessage, reset: resetMessage, setError: setMessageError, hasError: messageError } = useInput('', false);
+    const { value: name, bind: bindName, reset: resetName, setError: setNameError, hasError: nameError } = useInput('');
+    const { value: email, bind: bindEmail, reset: resetEmail, setError: setEmailError, hasError: emailError } = useInput('');
+    const { value: message, bind: bindMessage, reset: resetMessage, setError: setMessageError, hasError: messageError } = useInput('');
     const [isLoading, setLoading] = useState(false);
+    const { state, setToastMessage } = useContext(AppContext);
 
     const handleSubmit = (e, data) => {
         e.preventDefault();
@@ -39,18 +44,21 @@ function Form() {
 
         if(!data.name) {
             setNameError(true);
+            setToastMessage('Enter a name!', 'error');
             setLoading(false);
             return;
         } else if(!data.email) {
             setEmailError(true);
+            setToastMessage('Enter an email!', 'error');
             setLoading(false);
             return;
         } else if(!data.message) {
             setMessageError(true);
+            setToastMessage('Write me a message!', 'error');
             setLoading(false);
             return;
         }
-        console.log(bindName);
+
         fetch('/api/contact', {
             method: 'POST',
             headers: {
@@ -70,6 +78,7 @@ function Form() {
         }).catch(err => {
             throw new Error(err);
         });
+
         resetName();
         resetEmail();
         resetMessage();

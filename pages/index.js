@@ -21,6 +21,6 @@ function Home() {
             </Section>
         </Container>
     );
-};
+}
 
 export default Home;

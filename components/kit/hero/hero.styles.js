@@ -8,7 +8,7 @@ const StyledHero = styled.section`
   width: 100%;
   font-family: 'Trirong', serif;
   font-size: 2rem;
-  color: ${props => props.theme.colors.lightBlack};
+  color: ${props => props.theme.colors.first};
   letter-spacing: 2px;
   padding: 0 1rem;
 `;
@@ -17,16 +17,15 @@ const StyledHeroHeading = styled.h1`
   text-align: left;
   margin: 1rem;
   padding: 0 1rem;
-  background-color: ${props => props.theme.colors.lightBlack};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.scheme.first};
+  font-size: 48px;
 `;
 
 const StyledHeroSubheading = styled.h2`
   text-align: left;
   margin: 1rem;
   padding: 0 1rem;
-  background-color: ${props => props.theme.colors.lightBlack};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.scheme.first};
 `;
 
 const StyledHeroChildren = styled.div`

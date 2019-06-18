@@ -67,7 +67,7 @@ function AnimatedCards() {
                     key={key}
                     style={{ ...props, minHeight, transform: !open && `translate(0px, ${key * 8}%)`, maxHeight: minHeight }}
                     title={item.title}
-                    description={open && item.description}
+                    description={open ? item.description : ''}
                     alt={item.title}
                     src={item.image}
                     link={item.url}

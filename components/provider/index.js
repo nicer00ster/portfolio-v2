@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, useRef, createContext } from 'react';
 
 const AppContext = createContext();
 
@@ -7,7 +7,10 @@ function AppProvider(props) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isMenuScrolled, setIsMenuScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [toastMessage, setToastMessage] = useState('');
     const [width, setWidth] = useState(769);
+
+    const ref = useRef(null);
 
     function updateWindowDimensions() {
         if(width <= 768) {
@@ -61,9 +64,12 @@ function AppProvider(props) {
                     isMenuScrolled: isMenuScrolled,
                     menuOpen: menuOpen,
                     width: width,
+                    toastMessage: toastMessage,
+                    toastRef: ref,
                 },
                 setMenuOpen: (e) => handleMenuClick(e),
                 setIsLoading: (e) => handleLoading(e),
+                setToastMessage: (message) =>  ref.current(message),
             }}>
             {props.children}
         </AppContext.Provider>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { ThemeProvider } from 'styled-components';
 import AOS from "aos";
 
@@ -6,6 +6,7 @@ import Meta from '../meta';
 import Nav from '../nav';
 import Footer from '../footer';
 import Background from '../kit/background';
+import Toast from '../kit/toast';
 import { AppContext } from '../provider';
 
 import {
@@ -49,6 +50,7 @@ function Layout(props) {
           <LayoutStyles menuOpen={state.menuOpen}>
               <Meta />
               <GlobalStyles menuOpen={state.menuOpen} />
+              <Toast children={add => (state.toastRef.current = add)} />
               {props.children}
           </LayoutStyles>
           <Footer />
