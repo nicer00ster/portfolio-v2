@@ -6,11 +6,9 @@ import {
 import Loading from '../loading';
 
 function Button(props) {
-    const [ isActive, setIsActive ] = useState(false);
-
     return (
-        <StyledButton onClick={() => setIsActive(!isActive)} type={props.type} loading={props.loading}>
-            <StyledButtonLink type={props.type} className={isActive ? 'active' : ''}>
+        <StyledButton type={props.type} loading={props.loading}>
+            <StyledButtonLink type={props.type}>
                 {props.loading && <Loading />}
                 <span>{props.text}</span>
             </StyledButtonLink>

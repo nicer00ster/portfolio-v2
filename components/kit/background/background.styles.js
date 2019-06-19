@@ -20,6 +20,7 @@ const StyledBackground = styled.div`
         width: 100%;
         height: 100%;
         display: grid;
+        opacity: 0.6;
         grid-template-rows: repeat(auto-fill, 64px);
         grid-template-columns: [viewport-start] 0px [left-gutter-start] 0px 0px 0px 0px [left-gutter-end content-start] 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw [content-end right-gutter-start] 0px 0px 0px 0px [right-gutter-end] 0px [viewport-end];
         & div.stripe {

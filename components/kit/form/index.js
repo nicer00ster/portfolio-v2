@@ -40,24 +40,26 @@ function Form() {
     const handleSubmit = (e, data) => {
         e.preventDefault();
         e.persist();
+        setNameError(false);
+        setEmailError(false);
+        setMessageError(false);
         setLoading(true);
 
         if(!data.name) {
             setNameError(true);
-            setToastMessage('Enter a name!', 'error');
-            setLoading(false);
-            return;
-        } else if(!data.email) {
-            setEmailError(true);
-            setToastMessage('Enter an email!', 'error');
-            setLoading(false);
-            return;
-        } else if(!data.message) {
-            setMessageError(true);
-            setToastMessage('Write me a message!', 'error');
-            setLoading(false);
-            return;
         }
+        if(!data.email) {
+            setEmailError(true);
+        }
+        if(!data.message) {
+            setMessageError(true);
+        }
+
+        if(!data.name || !data.email || !data.message) {
+            setToastMessage('Make sure to fill out all the fields!');
+            setLoading(false);
+            return;
+        };
 
         fetch('/api/contact', {
             method: 'POST',
@@ -69,9 +71,6 @@ function Form() {
         }).then(res => {
             if(res.status === 200) {
                 setLoading(false);
-                setNameError(false);
-                setEmailError(false);
-                setMessageError(false);
             } else {
                 throw new Error('Something went wrong.');
             }

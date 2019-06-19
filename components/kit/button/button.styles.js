@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
   border: 0;
@@ -29,7 +29,7 @@ const StyledButtonLink = styled.a`
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 50%;
     display: block;
-    transition: all 0.5s 0.1s cubic-bezier(0.55,0,0.1,1);
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
   }
   
@@ -44,12 +44,12 @@ const StyledButtonLink = styled.a`
     box-shadow: rgba(0,0,0,0);
     background-color: ${props => props.theme.colors.white};
     border-radius: 50%;
-    transition: all 0.5s 0.1s cubic-bezier(0.55,0,0.1,1);
-    transform: translateX(-50%)scaleY(1)scaleX(1.45);
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
     z-index: -1;
   }
   
-  &.active, &:hover {
+  &:hover {
     color: ${props => props.theme.colors.white};
     z-index: 1;
     &:before {

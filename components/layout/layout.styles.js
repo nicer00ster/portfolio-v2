@@ -34,6 +34,9 @@ const colors = {
     grey: '#cacacc',
     white: '#fefefe',
     yellow: '#ffeaa7',
+    blue: '#92c5f8',
+    red: '#faa1bc',
+    green: '#80dad3',
     scheme: {
         first: '#535c68',
         second: '#95afc0',

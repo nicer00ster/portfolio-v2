@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTransition } from "react-spring";
-
+import debounce from 'lodash.debounce';
 import {
     StyledToastContainer,
     StyledToastOuter,
@@ -8,11 +8,12 @@ import {
     StyledToastContent,
     StyledToastButton,
     StyledToastDuration,
+    StyledToastButtonClose,
 } from './toast.styles';
 
 let notifId = 0;
 
-function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.1 }, timeout = 3000, children }) {
+function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.1 }, timeout = 5000, children }) {
     const [refMap] = useState(() => new WeakMap());
     const [cancelMap] = useState(() => new WeakMap());
     const [items, setItems] = useState([]);
@@ -23,7 +24,7 @@ function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.
         enter: item => async next => await next({
             opacity: 1,
             height: refMap.get(item).offsetHeight,
-            transform: `translate3d(0px, -${item.key * 15}px, 0px) scale(${1 - (item.key / 100 * 2)})`,
+            transform: `translate3d(0px, ${item.key * 65}%, 0px) scale(${1 - (item.key / 100 * 2)})`,
             zIndex: -item.key
         }),
         leave: item => async (next, cancel) => {
@@ -31,9 +32,12 @@ function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.
             await next({ life: '0%' });
             await next({ opacity: 0 });
             await next({ height: 0 });
+            await next({ transform: `translate3d(0px, -${(item.key - 1) * 70}px, -${item.key + 1}px) scale(.97)` });
         },
         onRest: item => setItems(state => state.filter(i => i.key !== item.key)),
-        onDestroyed: () => notifId--,
+        onDestroyed: item => {
+            notifId--;
+        },
         config: (item, state) => (state === 'leave' ? [{ duration: timeout }, config, config] : config),
     });
 
@@ -42,9 +46,9 @@ function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.
     return (
         <StyledToastContainer
             onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}>
+            onMouseLeave={debounce(() => setIsHovered(false), 500)}>
             {transitions.map(({ key, item, props: { life, ...style } }) => (
-                <StyledToastOuter key={key} style={isHovered ? { ...style, transform: `translate3d(0px, -${70 * item.key}px, -${item.key + 1}px) scale(.98)`} : { ...style }}>
+                <StyledToastOuter key={key} style={isHovered ? { ...style, transform: `translate3d(0px, -${item.key * 5}px, -${item.key + 1}px) scale(.97)`} : { ...style }}>
                     <StyledToastInner>
                         <StyledToastContent ref={ref => ref && refMap.set(item, ref)}>
                             <StyledToastDuration style={{ right: life }} />
@@ -54,11 +58,10 @@ function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.
                                     e.stopPropagation();
                                     cancelMap.has(item) && cancelMap.get(item)()
                                 }}>
-                                <div style={{ width: '25px', height: '25px', backgroundColor: 'black' }}/>
+                                <StyledToastButtonClose />
                             </StyledToastButton>
                         </StyledToastContent>
                     </StyledToastInner>
-
                 </StyledToastOuter>
             ))}
         </StyledToastContainer>
