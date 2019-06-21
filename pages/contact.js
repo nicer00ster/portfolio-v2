@@ -15,9 +15,9 @@ function Contact() {
             <Hero
                 heading="Alex Busch"
                 subheading="Recognized for developing robust back-end structures and producing accessible, responsive designs.">
-                <Card />
-                <Card />
-                <Card />
+                <Card fade="zoom-in-right" data-aos-delay="100"/>
+                <Card fade="zoom-in-right" data-aos-delay="200"/>
+                <Card fade="zoom-in-right" data-aos-delay="300"/>
             </Hero>
             <Section position="right" rotate="12deg">
                 <Form />

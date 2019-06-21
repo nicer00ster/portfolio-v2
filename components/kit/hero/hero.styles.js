@@ -32,6 +32,8 @@ const StyledHeroChildren = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 `;
 
 export {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useTransition } from "react-spring";
+import { useTransition, useSpring } from "react-spring";
 import debounce from 'lodash.debounce';
 import {
     StyledToastContainer,
@@ -11,13 +11,12 @@ import {
     StyledToastButtonClose,
 } from './toast.styles';
 
-let notifId = 0;
-
-function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.1 }, timeout = 5000, children }) {
+function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.1 }, timeout = 105000, children }) {
     const [refMap] = useState(() => new WeakMap());
     const [cancelMap] = useState(() => new WeakMap());
     const [items, setItems] = useState([]);
     const [isHovered, setIsHovered] = useState(false);
+    const [index, setIndex] = useState(0);
 
     const transitions = useTransition(items, item => item.key, {
         from: { opacity: 0, height: 0, life: '100%', transform: 'translate3d(0px, 100%, 0px) scale(1)', zIndex: 1 },
@@ -32,38 +31,43 @@ function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.
             await next({ life: '0%' });
             await next({ opacity: 0 });
             await next({ height: 0 });
-            await next({ transform: `translate3d(0px, -${(item.key - 1) * 70}px, -${item.key + 1}px) scale(.97)` });
         },
         onRest: item => setItems(state => state.filter(i => i.key !== item.key)),
-        onDestroyed: item => {
-            notifId--;
+        onDestroyed: () => {
+            setIndex(index - 1);
         },
         config: (item, state) => (state === 'leave' ? [{ duration: timeout }, config, config] : config),
     });
 
-    useEffect(() => void children(msg => setItems(state => [...state, { key: notifId++, msg }])), []);
+    useEffect(() => void children(msg => {
+        console.log('items', items);
+        setIndex(index + 1);
+        setItems(state => [...state, { key: index, msg }]);
+    }), [index]);
 
     return (
         <StyledToastContainer
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={debounce(() => setIsHovered(false), 500)}>
-            {transitions.map(({ key, item, props: { life, ...style } }) => (
-                <StyledToastOuter key={key} style={isHovered ? { ...style, transform: `translate3d(0px, -${item.key * 5}px, -${item.key + 1}px) scale(.97)`} : { ...style }}>
-                    <StyledToastInner>
-                        <StyledToastContent ref={ref => ref && refMap.set(item, ref)}>
-                            <StyledToastDuration style={{ right: life }} />
-                            <p>{item.msg}</p>
-                            <StyledToastButton
-                                onClick={e => {
-                                    e.stopPropagation();
-                                    cancelMap.has(item) && cancelMap.get(item)()
-                                }}>
-                                <StyledToastButtonClose />
-                            </StyledToastButton>
-                        </StyledToastContent>
-                    </StyledToastInner>
-                </StyledToastOuter>
-            ))}
+            {transitions.map(({ item, key, props: { life, ...style } }) => {
+                return (
+                    <StyledToastOuter key={key} style={isHovered ? { ...style, transform: `translate3d(0px, -${item.key * 15}%, ${item.key + 1}px) scale(.97)`} : { ...style }}>
+                        <StyledToastInner>
+                            <StyledToastContent ref={ref => ref && refMap.set(item, ref)}>
+                                <StyledToastDuration style={{ right: life }} />
+                                <p>{item.msg}</p>
+                                <StyledToastButton
+                                    onClick={e => {
+                                        e.stopPropagation();
+                                        cancelMap.has(item) && cancelMap.get(item)()
+                                    }}>
+                                    <StyledToastButtonClose />
+                                </StyledToastButton>
+                            </StyledToastContent>
+                        </StyledToastInner>
+                    </StyledToastOuter>
+                )
+            })}
         </StyledToastContainer>
     )
 }

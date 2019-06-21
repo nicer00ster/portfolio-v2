@@ -102,8 +102,8 @@ const StyledToastDuration = styled(animated.div)`
   bottom: 0;
   left: 0;
   width: auto;
-  background-image: linear-gradient(130deg, #dff9fb,  #c7ecee, #1f222e, #535c68);
-  height: 2px;
+  background-image: linear-gradient(130deg, #faa1bc, #80dad3);
+  height: 3px;
 `;
 
 export {

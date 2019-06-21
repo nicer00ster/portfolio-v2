@@ -15,9 +15,9 @@ function Projects() {
             <Hero
                 heading="Alex Busch"
                 subheading="Recognized for developing robust back-end structures and producing accessible, responsive designs.">
-                <Card />
-                <Card />
-                <Card />
+                <Card fade="zoom-in-left" data-aos-delay="100"/>
+                <Card fade="zoom-in-left" data-aos-delay="200"/>
+                <Card fade="zoom-in-left" data-aos-delay="300"/>
             </Hero>
             <Section position="center" rotate="12deg">
                 <AnimatedCards />

@@ -91,6 +91,41 @@ const GlobalStyles = createGlobalStyle`
       text-decoration: none;
       color: ${colors.black};
     }
+    pre {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+        serif;
+        line-height: 17px;
+        margin: 0;
+        white-space: pre;
+        color: ${colors.white};
+    }
+    .bold {
+        font-weight: 600;
+    }
+    @keyframes showFrame {
+       0% {
+         height: unset;
+         overflow: unset;
+       }
+       99% {
+         height: unset;
+         overflow: unset;
+       }
+       100% {
+         height: 0;
+       }
+    }
+    @keyframes lastFrame {
+       0% {
+         height: unset;
+         overflow: unset;
+       }
+       100% {
+         height: unset;
+         overflow: unset;
+       }
+    }
     ::selection {
       color: ${colors.white};
       background: ${colors.lightBlack};

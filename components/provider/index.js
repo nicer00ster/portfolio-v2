@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, createContext } from 'react';
+import { handleScroll } from '../../helpers';
 
 const AppContext = createContext();
 
@@ -26,24 +27,13 @@ function AppProvider(props) {
         updateWindowDimensions();
 
         window.addEventListener('resize', updateWindowDimensions);
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', () => handleScroll('#header', setIsMenuScrolled));
 
         return function unmount() {
             window.removeEventListener('resize', updateWindowDimensions);
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', () => handleScroll('#header', setIsMenuScrolled));
         }
     });
-
-    function handleScroll() {
-        const element = document.querySelector('#header');
-
-        if (window.scrollY > (element.offsetTop + element.offsetHeight)) {
-            setIsMenuScrolled(true);
-        }
-        if(window.scrollY === 0) {
-            setIsMenuScrolled(false);
-        }
-    }
 
     function handleMenuClick(e) {
         e.preventDefault();
@@ -79,4 +69,4 @@ function AppProvider(props) {
 const AppConsumer = AppContext.Consumer;
 
 export default AppProvider;
-export { AppConsumer, AppContext };
+export { AppConsumer, AppContext, handleScroll };
