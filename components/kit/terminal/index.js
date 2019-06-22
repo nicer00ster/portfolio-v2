@@ -18,7 +18,7 @@ function Terminal(props) {
         return function unmount() {
             window.removeEventListener('scroll', () => handleScroll('.terminal', setTrigger));
         }
-    }, []);
+    });
     return (
         <StyledTerminal data-aos="zoom-in-up" className="terminal">
             <StyledTerminalToolbar>
