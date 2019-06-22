@@ -16,7 +16,7 @@ const StyledCard = styled(animated.div).attrs(props => ({
   border-radius: ${props => props.theme.effects.radius};
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.effects.shadow};
-  transition: all 0.25s ease;
+  transition: all 0.25s ease !important;
   background: ${props => props.theme.colors.white};
   &:hover, &:active {
     box-shadow: ${props => props.theme.effects.shadowHover};

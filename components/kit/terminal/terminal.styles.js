@@ -18,7 +18,7 @@ const StyledTerminal = styled.div`
     box-shadow: ${props => props.theme.effects.shadow};
     background: #1f222e;
     overflow: hidden;
-    transition: all 0.25s ease;
+    transition: all 0.25s ease !important;
     &:hover {
       box-shadow: ${props => props.theme.effects.shadowHover};
     }

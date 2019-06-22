@@ -15,10 +15,14 @@ const StyledForm = styled.form.attrs(props => ({
 }))`
   width: 50%;
   margin: 1rem;
-  box-shadow: ${props => props.theme.effects.shadow};
   border-radius: ${props => props.theme.effects.radius};
   background-color: ${props => props.theme.colors.white};
   line-height: 1.5;
+  box-shadow: ${props => props.theme.effects.shadow};
+  transition: all 0.25s ease !important;
+  &:hover {
+      box-shadow: ${props => props.theme.effects.shadowHover};
+  }
   fieldset {
     border: 0;
     padding: 1.6rem;
