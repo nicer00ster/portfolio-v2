@@ -78,10 +78,6 @@ const StyledTerminalCaret = styled.span`
     animation: ${blink} .8s linear infinite alternate;
 `;
 
-const StyledTerminalLetters = styled.div`
-  margin-left: 12px;
-`;
-
 export {
     StyledTerminal,
     StyledTerminalToolbar,
@@ -90,5 +86,4 @@ export {
     StyledTerminalContent,
     StyledTerminalZeit,
     StyledTerminalCaret,
-    StyledTerminalLetters,
 }

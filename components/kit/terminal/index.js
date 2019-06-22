@@ -1,24 +1,15 @@
-import { useEffect, useState } from 'react';
 import {
     StyledTerminal,
     StyledTerminalToolbar,
     StyledTerminalButton,
     StyledTerminalTitle,
     StyledTerminalContent,
-    StyledTerminalLetters,
 } from './terminal.styles';
 import generateFrames from './generateFrames';
-import { handleScroll } from '../../../helpers';
 
 function Terminal(props) {
-    const [toggle, setToggle] = useState(false);
-
-    useEffect(() => {
-        window.addEventListener('scroll', () => handleScroll('#terminal', setToggle));
-    }, []);
-
     return (
-        <StyledTerminal data-aos="zoom-in-up" id="terminal">
+        <StyledTerminal data-aos="zoom-in-up" className="terminal">
             <StyledTerminalToolbar>
                 <StyledTerminalButton color={props.buttonOne} />
                 <StyledTerminalButton color={props.buttonTwo} />
@@ -28,12 +19,9 @@ function Terminal(props) {
                 </StyledTerminalTitle>
             </StyledTerminalToolbar>
             <StyledTerminalContent>
-                <StyledTerminalLetters>
-                    {props.children || <pre>{toggle && generateFrames(true)}</pre>}
-                </StyledTerminalLetters>
+                <pre>{generateFrames()}</pre>
             </StyledTerminalContent>
         </StyledTerminal>
-
     );
 }
 

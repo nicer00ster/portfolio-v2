@@ -236,11 +236,11 @@ function generateFrames(onRender) {
                 <>
                  <span className="bold">
                      <span role="img" aria-label="star">
-                  ✨
-                  </span>{' '}
+                     ✨
+                     </span>{' '}
                      Done in 0.79s
-                  </span>
-                    <br />
+                 </span>
+                 <br />
                 </>
             ),
             7: <StyledTerminalZeit />,
