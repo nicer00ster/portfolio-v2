@@ -73,53 +73,53 @@ function generateFrames(onRender) {
         },
         {
             duration: 50,
-            1: 'npm install ded'
+            1: 'npm install dev'
         },
         {
             duration: 50,
-            1: 'npm install dedi'
+            1: 'npm install deve'
         },
         {
             duration: 50,
-            1: 'npm install dedic'
+            1: 'npm install devel'
         },
         {
             duration: 50,
-            1: 'npm install dedica'
+            1: 'npm install develo'
         },
         {
             duration: 50,
-            1: 'npm install dedicat'
+            1: 'npm install develop'
         },
         {
             duration: 50,
-            1: 'npm install dedicati'
+            1: 'npm install develope'
         },
         {
             duration: 50,
-            1: 'npm install dedicatio'
+            1: 'npm install developer'
         },
         {
             duration: 50,
-            1: 'npm install dedication'
+            1: 'npm install developer'
         },
         {
             duration: 50,
-            1: 'npm install dedication -'
+            1: 'npm install developer -'
         },
         {
             duration: 50,
-            1: 'npm install dedication -g'
+            1: 'npm install developer -g'
         },
         {
             duration: 300,
-            1: 'npm install dedication -g'
+            1: 'npm install developer -g'
         },
         {
             duration: 850,
             1: (
                 <>
-                    npm install dedication -g
+                    npm install developer -g
                     <br />
                     <span>[12:43:18 PM] Compiling client</span>
                     <br />
@@ -132,7 +132,7 @@ function generateFrames(onRender) {
             duration: 850,
             1: (
                 <>
-                    npm install dedication -g
+                    npm install developer -g
                     <br />
                     <span>[12:43:18 PM] Compiling client</span>
                     <br />
@@ -221,10 +221,9 @@ function generateFrames(onRender) {
             duration: 850,
             5: (
                 <>
-                    <br />~ exporting apron: /apron
-                    <br />~ exporting knife: /knife
-                    <br />~ exporting sweat: /sweat
-                    <br />~ exporting slowdeath: /<br />
+                    <br /><span style={{ color: "palegreen" }}>✔ </span>exporting apron: /apron
+                    <br /><span style={{ color: "palegreen" }}>✔ </span>exporting knife: /knife
+                    <br /><span style={{ color: "palegreen" }}>✔ </span>exporting sweat: /sweat <br />
                     <br />
                 </>
             )
@@ -235,6 +234,8 @@ function generateFrames(onRender) {
             6: (
                 <>
                  <span className="bold">
+                     <span style={{ color: 'palegreen' }}>🎉 sucessfully imported dev 🎉</span>
+                     <br />
                      <span role="img" aria-label="star">
                      ✨
                      </span>{' '}
