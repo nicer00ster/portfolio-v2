@@ -7,16 +7,23 @@ import {
     StyledTerminalContent,
 } from './terminal.styles';
 import generateFrames from './generateFrames';
-import { handleScroll } from '../../../helpers';
 
 function Terminal(props) {
     const [trigger, setTrigger] = useState(false);
 
+    function handleScroll(el) {
+        const element = document.querySelector(el);
+
+        if (element && window.scrollY > (element.offsetTop + element.offsetHeight)) {
+            setTrigger(true);
+        }
+    }
+
     useEffect(() => {
-        window.addEventListener('scroll', () => handleScroll('.terminal', setTrigger));
+        window.addEventListener('scroll', () => handleScroll('.terminal'));
 
         return function unmount() {
-            window.removeEventListener('scroll', () => handleScroll('.terminal', setTrigger));
+            window.removeEventListener('scroll', () => handleScroll('.terminal'));
         }
     });
     return (
@@ -30,7 +37,7 @@ function Terminal(props) {
                 </StyledTerminalTitle>
             </StyledTerminalToolbar>
             <StyledTerminalContent>
-                <pre>{trigger && generateFrames()}</pre>
+                <pre>{trigger ? generateFrames() : ''}</pre>
             </StyledTerminalContent>
         </StyledTerminal>
     );

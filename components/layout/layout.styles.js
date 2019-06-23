@@ -86,6 +86,7 @@ const GlobalStyles = createGlobalStyle`
       padding: 0;
       margin: 0;
       overflow: ${props => props.menuOpen ? 'hidden' : ''};
+      overflow-x: hidden;
     }
     a {
       text-decoration: none;

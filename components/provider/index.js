@@ -69,4 +69,4 @@ function AppProvider(props) {
 const AppConsumer = AppContext.Consumer;
 
 export default AppProvider;
-export { AppConsumer, AppContext, handleScroll };
+export { AppConsumer, AppContext };
