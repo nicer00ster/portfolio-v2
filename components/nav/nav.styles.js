@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   top: 0;
   transition: all 0.25s ease-in;
   width: 100%;
-  z-index: 99;
+  z-index: 9999;
   ${props => props.theme.mediaQuery.tablet`
     margin: 0;
   `};
@@ -179,9 +179,6 @@ const StyledDrawerItem = styled.li`
       }
     }
 `;
-
-
-
 
 export {
     StyledHeader,

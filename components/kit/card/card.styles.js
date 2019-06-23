@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { animated } from 'react-spring';
 
 const StyledCard = styled(animated.div).attrs(props => ({
@@ -10,9 +10,6 @@ const StyledCard = styled(animated.div).attrs(props => ({
   flex: 1;
   width: 100%;
   margin: 1rem;
-  min-height: 400px;
-  // min-width: 225px;
-  // max-width: 350px;
   border-radius: ${props => props.theme.effects.radius};
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.effects.shadow};
@@ -34,7 +31,15 @@ const StyledProjectCard = styled(StyledCard)`
   overflow: hidden;
   will-change: transform, opacity;
   transition: all .25s linear;
+  ${props => props.workType === 'phone' && props.active !== "true" ? `
+      border-top-right-radius: 36px;
+      border-top-left-radius: 36px;
+  ` : ''};
   &:before {
+    ${props => props.workType === 'phone' && props.active !== "true" ? `
+      border-top-right-radius: 36px;
+      border-top-left-radius: 36px;
+    ` : ''};
     display: block;
     content: '';
     position: absolute;
@@ -50,10 +55,26 @@ const StyledProjectCard = styled(StyledCard)`
     opacity: 0.6;
     z-index: 1;
     clip-path: polygon(0 0, 100% 0, 100% calc(50% - 2vw), 0% 50%);
-    transition: all .75s ease;
+    transition: clip-path, bottom, opacity, filter, .75s ease;
     ${props => props.theme.mediaQuery.tablet`
         clip-path: polygon(0 0, 100% 0, 100% calc(50% - 8vw), 0% 50%);
     `};
+  }
+  &.grid-cell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #777777;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    line-height: 10px;
+  }
+  &.active .card-content {
+    opacity: 0;
   }
   & .card-image {
     flex: 1;
@@ -62,19 +83,19 @@ const StyledProjectCard = styled(StyledCard)`
     height: 100%;
     position: absolute;
     filter: grayscale(150%);
-    transition: all .75s;
+    transition: clip-path .75s;
     ${props => props.theme.mediaQuery.tablet`
         clip-path: polygon(0 0, 100% 0, 100% calc(50% - 8vw), 0% 50%);
     `};
   }
-  &:hover, &:active {
+  ${props => props.active === "false" && css`&:hover, &:active {
       bottom: 4px;
       &:before {
         opacity: .01;
         clip-path: polygon(0 0, 100% 0, 100% calc(75%), 0% 75%);
       }
       & .card-image {
-        filter: contrast(100%);
+        filter: unset;
         clip-path: polygon(0 0, 100% 0, 100% calc(75%), 0% 75%);
       }
       & .card-text, .card-tooling {
@@ -90,19 +111,17 @@ const StyledProjectCard = styled(StyledCard)`
           }
         }
       }
-  }
+  }`}
 `;
 
 const StyledCardContent = styled.div`
   display: flex;
   flex-direction: column;
-  //justify-content: flex-end;
   z-index: 1;
   width: 100%;
   height: 100%;
   margin-top: auto;
   padding: 1.2rem;
-  transition: all 0.75s ease;
 `;
 
 const StyledCardText = styled.p`
@@ -117,9 +136,8 @@ const StyledCardImage = styled.div`
   border-top-left-radius: ${props => props.theme.radius};
   background-image: ${props => `url(${props.src})`};
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 50% 0%;
-  object-fit: fill;
+  background-size: ${props => props.imageSize};
+  background-position: ${props => props.imageSize === 'contain' ? '100% 0%' : '50% 50%'};
   height: 100%;
   width: 100%;
   flex: 1;
@@ -138,7 +156,7 @@ const StyledCardLink = styled.a`
   left: 0;
   opacity: 0;
   transition: all 0.75s cubic-bezier(0.475, -0.020, 0.010, 1.005);
-  & .circle {
+  & .arrow-circle {
     width: 58px;
     height: 58px;
     margin-left: auto;
@@ -179,7 +197,7 @@ const StyledCardLink = styled.a`
     & .arrow-fill {
       fill: #95afc0;
     }
-    & .circle {
+    & .arrow-circle {
       border: 2px solid #95afc0;
     }
   }

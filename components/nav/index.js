@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -10,7 +9,6 @@ import {
     StyledHeader,
     StyledLogo,
 } from './nav.styles';
-import { AppContext } from '../provider';
 
 Router.onRouteChangeStart = () => {
     NProgress.start();
@@ -20,18 +18,18 @@ Router.onRouteChangeComplete = () => {
     NProgress.done();
 };
 
-function Header() {
-    const { state, setMenuOpen } = useContext(AppContext);
+function Header(props) {
+    const { ctx } = props;
 
     return (
-        <StyledHeader id="header" isMenuScrolled={state.isMenuScrolled}>
+        <StyledHeader id="header" isMenuScrolled={ctx.state.isMenuScrolled}>
             <div className="header-container">
                 <Link href="/" scroll={true}>
-                    <StyledLogo menuOpen={state.menuOpen}>◈</StyledLogo>
+                    <StyledLogo menuOpen={ctx.state.menuOpen}>◈</StyledLogo>
                 </Link>
-                {!state.isMobile && <Nav />}
-                {state.isMobile && <Burger onClick={e => setMenuOpen(e)} menuOpen={state.menuOpen} />}
-                {state.isMobile && <Drawer aria-expanded={state.menuOpen} />}
+                {!ctx.state.isMobile && <Nav />}
+                {ctx.state.isMobile && <Burger onClick={e => ctx.setMenuOpen(e)} menuOpen={ctx.state.menuOpen} />}
+                {ctx.state.isMobile && <Drawer aria-expanded={ctx.state.menuOpen} />}
             </div>
         </StyledHeader>
     );

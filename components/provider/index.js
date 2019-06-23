@@ -10,6 +10,7 @@ function AppProvider(props) {
     const [isMobile, setIsMobile] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
     const [width, setWidth] = useState(769);
+    const [height, setHeight] = useState(0);
 
     const ref = useRef(null);
 
@@ -20,6 +21,7 @@ function AppProvider(props) {
             setIsMobile(false);
             setMenuOpen(false);
         }
+        setHeight(window.innerHeight);
         setWidth(window.innerWidth);
     }
 
@@ -54,6 +56,7 @@ function AppProvider(props) {
                     isMenuScrolled: isMenuScrolled,
                     menuOpen: menuOpen,
                     width: width,
+                    height: height,
                     toastMessage: toastMessage,
                     toastRef: ref,
                 },

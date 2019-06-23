@@ -46,7 +46,7 @@ function Layout(props) {
               rotate="-12deg"
               menuOpen={state.menuOpen}
           />
-          <Nav />
+          <Nav ctx={props.ctx} />
           <LayoutStyles menuOpen={state.menuOpen}>
               <Meta />
               <GlobalStyles menuOpen={state.menuOpen} />

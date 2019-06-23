@@ -4,7 +4,7 @@ import Hero from '../components/kit/hero';
 import Container from '../components/kit/container';
 import Section from '../components/kit/section';
 import Card from '../components/kit/card';
-import AnimatedCards from '../components/kit/card/animation';
+import CardGrid from '../components/kit/card/grid';
 
 function Projects() {
     return (
@@ -20,7 +20,7 @@ function Projects() {
                 <Card fade="zoom-in-left" data-aos-delay="300"/>
             </Hero>
             <Section position="center" rotate="12deg">
-                <AnimatedCards />
+                <CardGrid />
             </Section>
         </Container>
     );

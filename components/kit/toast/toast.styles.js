@@ -78,10 +78,12 @@ const StyledToastButton = styled.button`
 `;
 
 const StyledToastButtonClose = styled.div`
+  cursor: pointer;
   position: relative;
   width: 16px;
   height: 16px;
   opacity: 0.3;
+  z-index: 1001;
   &:before, &:after {
       content: "";
       position: absolute;
