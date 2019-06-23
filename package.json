@@ -26,8 +26,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-spring": "^8.0.25",
-    "styled-components": "^4.2.0",
-    "three": "^0.104.0"
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "babel-plugin-inline-react-svg": "^1.1.0"

@@ -90,6 +90,7 @@ const StyledNavList = styled.ul`
 `;
 
 const StyledLogo = styled.a`
+  cursor: pointer;
   display: block;
   text-align: center;
   font-size: 72px;

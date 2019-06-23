@@ -5,9 +5,9 @@ import {
     StyledDonut
 } from "./sparkles.styles";
 
-function Sparkles() {
+function Sparkles(props) {
     return (
-        <StyledSparkles>
+        <StyledSparkles {...props}>
             <StyledDonut color="#faa1bc" size="21" top="25" left="50" delay="0.5s" />
             <StyledDonut color="#fefefe" size="17" top="4" left="15" delay="0.9s" />
             <StyledCircle color="#80dad3" size="6" top="5" left="25" delay="0.5s" />
