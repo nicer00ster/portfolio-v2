@@ -9,6 +9,7 @@ import { StyledToastButtonClose } from '../../../kit/toast/toast.styles';
 import {
     StyledGridDetails,
     StyledGridContent,
+    StyledGridContentTitle,
     StyledGridTitle,
     StyledGridDescription,
     StyledGridLink,
@@ -19,13 +20,14 @@ import { AppConsumer } from '../../../provider';
 
 class GridItem extends Component {
     render() {
-        const { toggle, title, image, workImage, url, type, imageSize, description, active, isMobile } = this.props;
+        const { toggle, css, title, image, workImage, url, type, imageSize, description, active, isMobile } = this.props;
         return (
             <Card type="project"
                   workType={type}
                   className={`grid-cell ${active ? 'active' : ''}`}
                   src={image}
                   active={active ? "true" : "false"}
+                  gradient={css}
                   imageSize={imageSize}
                   style={{ cursor: !active ? 'pointer' : 'auto' }}
                   onClick={!active ? toggle : undefined}>
@@ -54,7 +56,7 @@ class GridItem extends Component {
                     delay={active ? 0 : 200}>
                     <StyledGridContent>
                         <p>{description}</p>
-                        <div style={{ zIndex: 1 }}>{title}</div>
+                        <StyledGridContentTitle style={{ zIndex: 1 }}>{title}</StyledGridContentTitle>
                     </StyledGridContent>
                 </Fade>
             </Card>
@@ -76,11 +78,11 @@ class CardGrid extends Component {
                         type={data => data.type}
                         imageSize={data => data.imageSize}
                         isMobile={ctx.state.isMobile}
-                        columns={ctx.state.isMobile ? 2 : 3}
+                        columns={3}
                         margin={30}
                         lockScroll={true}
                         closeDelay={250}
-                        config={config.gentle}>
+                        config={{ mass: 1, tension: 320, friction: 24 }}>
                         {(data, active, toggle) => (
                             <GridItem {...data} active={active} toggle={toggle} />
                         )}

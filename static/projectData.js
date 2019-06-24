@@ -3,13 +3,14 @@ import path from 'path';
 export default [
     {
         title: 'ICON Worldwide',
-        description: 'Redesign of the entire ICON Worldwide website. Converted their static WordPress website into a decoupled WordPress site using React & Redux.',
+        description: 'Redesign of the entire ICON Worldwide website. Converted their static WordPress site into a decoupled web application using React & Redux.',
         image: path.resolve(__dirname, '/static/images/icon-worldwide.png'),
         workImage: path.resolve(__dirname, '/static/images/icon-worldwide-work.webp'),
         url: 'https://icon-worldwide.com/',
         type: 'web',
         imageSize: 'cover',
         height: 200,
+        css: 'linear-gradient(to top, #a8edea 0%, #fed6e3 100%)',
         key: 1,
     },
     {
@@ -21,6 +22,7 @@ export default [
         type: 'web',
         imageSize: 'contain',
         height: 400,
+        css: 'linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)',
         key: 2,
     },
     {
@@ -32,17 +34,19 @@ export default [
         type: 'web',
         imageSize: 'cover',
         height: 200,
+        css: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
         key: 3,
     },
     {
         title: 'DARKNET.FM (Mobile)',
         description: 'Mobile App version of DARKNET.FM. Built with React Native. Available for Android devices.',
-        image: path.resolve(__dirname, '/static/images/darknet.jpg'),
-        workImage: path.resolve(__dirname, '/static/images/'),
+        image: path.resolve(__dirname, '/static/images/darknet-phone.webp'),
+        workImage: path.resolve(__dirname, '/static/images/darknet-phone-work.webp'),
         url: 'https://play.google.com/store/apps/details?id=com.lofimedia&hl=en',
         type: 'phone',
         imageSize: 'contain',
         height: 400,
+        css: 'linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)',
         key: 4,
     },
     {
@@ -54,6 +58,7 @@ export default [
         type: 'web',
         imageSize: 'contain',
         height: 200,
+        css: 'linear-gradient(to top, #5ee7df 0%, #b490ca 100%)',
         key: 5,
     },
     {
@@ -65,6 +70,7 @@ export default [
         type: 'phone',
         imageSize: 'contain',
         height: 400,
+        css: 'linear-gradient(to top, #d299c2 0%, #fef9d7 100%)',
         key: 6,
     },
     {
@@ -76,6 +82,7 @@ export default [
         type: 'web',
         imageSize: 'contain',
         height: 200,
+        css: 'linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%)',
         key: 7,
     },
     {
@@ -87,6 +94,7 @@ export default [
         type: 'phone',
         imageSize: 'contain',
         height: 400,
+        css: 'linear-gradient(120deg, #f6d365 0%, #fda085 100%)',
         key: 8,
     },
     {
@@ -98,6 +106,7 @@ export default [
         type: 'web',
         imageSize: 'contain',
         height: 200,
+        css: 'linear-gradient(to top, #96fbc4 0%, #f9f586 100%)',
         key: 9,
     },
     {
@@ -109,6 +118,7 @@ export default [
         type: 'phone',
         imageSize: 'contain',
         height: 400,
+        css: 'linear-gradient(-20deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%)',
         key: 10,
     }
 ]

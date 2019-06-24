@@ -18,6 +18,7 @@ const styles = {
     cell: {
         position: 'absolute',
         willChange: 'transform, width, height, opacity',
+        padding: '.6rem',
     },
 };
 
@@ -51,9 +52,9 @@ export default class Grid extends React.Component {
             pointerEvents: this.state.open && !open ? 'none' : 'all',
             x: open ? this.outerRef.scrollLeft : x,
             y: open ? this.outerRef.scrollTop : y,
-            width: open ? this.state.width - 30 : width,
+            width: open ? this.state.width - 45 : width,
             height: open ? this.state.heightOuter / 2 : height,
-            left: 15, // Half the pixels of the marge that's added to the width.
+            left: 25, // Half the pixels of the marge that's added to the width.
         }
     };
 
@@ -133,7 +134,7 @@ export default class Grid extends React.Component {
                                             ...config,
                                             delay: this.clicked && !open ? closeDelay : 0,
                                         }}>
-                                        {(c, i) => ({ opacity, x, y, width, height, position, pointerEvents, left }) => (
+                                        {(c, i) => ({ opacity, x, y, width, height, pointerEvents, left }) => (
                                             <AppConsumer>
                                                 {( ctx ) => (
                                                     <animated.div

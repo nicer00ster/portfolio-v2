@@ -7,7 +7,7 @@ const StyledGridDetails = styled.div`
   width: 100%;
   height: 100%;
   background: #ffffffa0;
-  color: white;
+  color: ${props => props.theme.colors.white};
   padding: 20px;
   font-weight: 100;
   display: flex;
@@ -72,12 +72,17 @@ const StyledGridWork = styled.div`
   align-items: center;
   padding: 2rem 0;
   & img {
-    //width: ${props => props.isMobile ? '100%' : '50%'};
+    max-width: 100%;
     box-shadow: ${props => props.type === 'web' ? props.theme.effects.shadowHover : 'unset'};
     max-height: 400px;
     border-radius: 2px;
     object-fit: scale-down;
   }
+`;
+
+const StyledGridContentTitle = styled.div`
+  color: ${props => props.theme.colors.black};
+  font-weight: 800;
 `;
 
 export {
@@ -88,4 +93,5 @@ export {
   StyledGridLink,
   StyledGridClose,
   StyledGridWork,
+  StyledGridContentTitle,
 };

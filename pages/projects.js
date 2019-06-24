@@ -1,12 +1,18 @@
 import Head from 'next/head';
+import { useContext } from 'react';
 
 import Hero from '../components/kit/hero';
 import Container from '../components/kit/container';
 import Section from '../components/kit/section';
 import Card from '../components/kit/card';
 import CardGrid from '../components/kit/card/grid';
+import { StyledMobileCardContainer } from "../components/kit/card/card.styles";
+import { AppContext } from '../components/provider';
+import projectData from '../static/projectData';
 
-function Projects() {
+function Projects(props) {
+    const { state } = useContext(AppContext);
+    console.log(state);
     return (
         <Container>
             <Head>
@@ -20,7 +26,23 @@ function Projects() {
                 <Card fade="zoom-in-left" data-aos-delay="300"/>
             </Hero>
             <Section position="center" rotate="12deg">
-                <CardGrid />
+                {state.isMobile ?
+                    <StyledMobileCardContainer>
+                        {projectData.map(item => (
+                            <Card
+                                type="mobile"
+                                workType={item.type}
+                                key={item.key}
+                                title={item.title}
+                                description={item.description}
+                                gradient={item.css}
+                                alt={item.title}
+                                src={item.image}
+                                link={item.url}
+                            />
+                        ))};
+                    </StyledMobileCardContainer>
+                     : <CardGrid />}
             </Section>
         </Container>
     );
