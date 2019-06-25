@@ -9,6 +9,10 @@
         "cache-control": "public, max-age=43200, immutable",
         "Service-Worker-Allowed": "/"
       }
+    },
+    {
+      "src": "/api/contact",
+      "dest": "/api/index.js"
     }
   ],
   "builds": [
@@ -17,8 +21,19 @@
       "use": "@now/next"
     },
     {
+      "src": "/api/index.js",
+      "use": "@now/node"
+    },
+    {
       "src": "static/*",
       "use": "@now/static"
     }
-  ]
+  ],
+  "env": {
+    "EMAIL": "@email-address",
+    "PASSWORD": "@email-password",
+    "CLIENT_ID": "@client-id",
+    "CLIENT_SECRET": "@client-secret",
+    "REFRESH_TOKEN": "@refresh-token"
+  }
 }

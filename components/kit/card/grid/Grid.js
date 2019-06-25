@@ -12,7 +12,6 @@ const styles = {
     inner: {
         position: 'relative',
         width: '100%',
-        overflow: 'hidden',
         minHeight: '100%',
     },
     cell: {
@@ -52,9 +51,8 @@ export default class Grid extends React.Component {
             pointerEvents: this.state.open && !open ? 'none' : 'all',
             x: open ? this.outerRef.scrollLeft : x,
             y: open ? this.outerRef.scrollTop : y,
-            width: open ? this.state.width - 45 : width,
+            width: open ? this.state.width : width,
             height: open ? this.state.heightOuter / 2 : height,
-            left: 25, // Half the pixels of the marge that's added to the width.
         }
     };
 
@@ -100,7 +98,6 @@ export default class Grid extends React.Component {
                 object: child,
             }
         })
-        const overflow = lockScroll ? (open ? 'hidden' : 'auto') : 'auto';
         const height = Math.max(...columnHeights) + margin;
         return (
             <Measure
@@ -110,7 +107,7 @@ export default class Grid extends React.Component {
                 {({ measureRef }) => (
                     <div
                         ref={measureRef}
-                        style={{ ...styles.outer, ...this.props.style, overflow }}
+                        style={{ ...styles.outer, ...this.props.style }}
                         {...rest}
                         onScroll={this.scrollOut}
                         onWheel={this.scrollOut}

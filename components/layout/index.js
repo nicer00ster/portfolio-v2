@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useRef } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import AOS from "aos";
 
@@ -46,7 +46,7 @@ function Layout(props) {
               rotate="-12deg"
               menuOpen={state.menuOpen}
           />
-          <Nav ctx={props.ctx} />
+          <Nav />
           <LayoutStyles menuOpen={state.menuOpen}>
               <Meta />
               <GlobalStyles menuOpen={state.menuOpen} />

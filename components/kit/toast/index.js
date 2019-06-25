@@ -40,7 +40,6 @@ function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.
     });
 
     useEffect(() => void children(msg => {
-        console.log('items', items);
         setIndex(index + 1);
         setItems(state => [...state, { key: index, msg }]);
     }), [index]);

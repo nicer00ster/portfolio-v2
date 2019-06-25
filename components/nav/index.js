@@ -1,3 +1,4 @@
+import { useContext, useCallback, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -9,6 +10,7 @@ import {
     StyledHeader,
     StyledLogo,
 } from './nav.styles';
+import { AppContext } from '../../components/provider';
 
 Router.onRouteChangeStart = () => {
     NProgress.start();
@@ -18,18 +20,35 @@ Router.onRouteChangeComplete = () => {
     NProgress.done();
 };
 
-function Header(props) {
-    const { ctx } = props;
+function Header() {
+    const { state, setMenuOpen } = useContext(AppContext);
+    const [isTop, setIsTop] = useState(false);
+
+    const handleWindowScroll = useCallback(e => {
+        if(e.path[1].scrollY > 0) {
+            setIsTop(true);
+        } else {
+            setIsTop(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleWindowScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleWindowScroll);
+        }
+    }, [handleWindowScroll]);
 
     return (
-        <StyledHeader id="header" isMenuScrolled={ctx.state.isMenuScrolled}>
+        <StyledHeader id="header" className={`${isTop ? 'is-scrolled' : ''}`}>
             <div className="header-container">
                 <Link href="/" scroll={true}>
-                    <StyledLogo menuOpen={ctx.state.menuOpen}>◈</StyledLogo>
+                    <StyledLogo menuOpen={state.menuOpen}>◈</StyledLogo>
                 </Link>
-                {!ctx.state.isMobile && <Nav />}
-                {ctx.state.isMobile && <Burger onClick={e => ctx.setMenuOpen(e)} menuOpen={ctx.state.menuOpen} />}
-                {ctx.state.isMobile && <Drawer aria-expanded={ctx.state.menuOpen} />}
+                {!state.isMobile && <Nav />}
+                {state.isMobile && <Burger onClick={e => setMenuOpen(e)} menuOpen={state.menuOpen} />}
+                {state.isMobile && <Drawer aria-expanded={state.menuOpen} />}
             </div>
         </StyledHeader>
     );

@@ -3,7 +3,7 @@ import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
 import Intro from '../components/intro';
 import Layout from '../components/layout';
-import AppProvider, { AppConsumer } from '../components/provider';
+import AppProvider from '../components/provider';
 
 class CustomApp extends App {
     static async getInitialProps({ Component, ctx }) {
@@ -31,22 +31,21 @@ class CustomApp extends App {
     }
     render() {
         const { Component, pageProps } = this.props;
-        if(pageProps.cookie) {
+        if(!pageProps.cookie) {
+            return (
+                <Container>
+                    <AppProvider>
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </AppProvider>
+                </Container>
+            );
+
+        } else {
             return <Intro removeCookie={this.removeCookie} />
         }
-        return (
-            <Container>
-                <AppProvider>
-                    <AppConsumer>
-                        {( ctx ) => (
-                            <Layout ctx={ctx}>
-                                <Component {...pageProps} />
-                            </Layout>
-                        )}
-                    </AppConsumer>
-                </AppProvider>
-            </Container>
-        );
+
     }
 }
 

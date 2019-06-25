@@ -14,7 +14,7 @@ function Contact() {
             </Head>
             <Hero
                 heading="Alex Busch"
-                subheading="Recognized for developing robust back-end structures and producing accessible, responsive designs.">
+                subheading="Readily available to take on fun & exciting freelance work. Have an idea that you want to bring to life? Fill out the form below!">
                 <Card fade="zoom-in-right" data-aos-delay="100"/>
                 <Card fade="zoom-in-right" data-aos-delay="200"/>
                 <Card fade="zoom-in-right" data-aos-delay="300"/>

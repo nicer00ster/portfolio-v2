@@ -10,9 +10,8 @@ import { StyledMobileCardContainer } from "../components/kit/card/card.styles";
 import { AppContext } from '../components/provider';
 import projectData from '../static/projectData';
 
-function Projects(props) {
+function Projects() {
     const { state } = useContext(AppContext);
-    console.log(state);
     return (
         <Container>
             <Head>
@@ -31,6 +30,7 @@ function Projects(props) {
                         {projectData.map(item => (
                             <Card
                                 type="mobile"
+                                fade="zoom-in-up"
                                 workType={item.type}
                                 key={item.key}
                                 title={item.title}

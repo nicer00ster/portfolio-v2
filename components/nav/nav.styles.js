@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-  position: ${props => props.isMenuScrolled ? 'sticky' : 'relative'};
-  background-color: ${props => props.isMenuScrolled ? props.theme.colors.white : 'transparent'};
-  box-shadow: ${props => props.isMenuScrolled ? props.theme.effects.shadow : ''};
+  position: sticky;
+  background-color: transparent;
   top: 0;
+  padding-top: 0;
   transition: all 0.25s ease-in;
   width: 100%;
   z-index: 9999;
+  &.is-scrolled {
+    background-color: ${props => props.theme.colors.white};
+    box-shadow: ${props => props.theme.effects.shadow};
+  }
   ${props => props.theme.mediaQuery.tablet`
     margin: 0;
   `};
-  & div.header-container {
+  & .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef, createContext } from 'react';
-import { handleScroll } from '../../helpers';
 
 const AppContext = createContext();
 
 function AppProvider(props) {
     const [isLoading, setIsLoading] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isMenuScrolled, setIsMenuScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
     const [width, setWidth] = useState(769);
@@ -14,28 +12,25 @@ function AppProvider(props) {
 
     const ref = useRef(null);
 
-    function updateWindowDimensions() {
-        if(width <= 768) {
-            setIsMobile(true);
-        } else {
-            setIsMobile(false);
-            setMenuOpen(false);
-        }
-        setHeight(window.innerHeight);
-        setWidth(window.innerWidth);
-    }
-
     useEffect(() => {
+        function updateWindowDimensions() {
+            if(width <= 768) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+                setMenuOpen(false);
+            }
+            setHeight(window.innerHeight);
+            setWidth(window.innerWidth);
+        }
         updateWindowDimensions();
 
         window.addEventListener('resize', updateWindowDimensions);
-        window.addEventListener('scroll', () => handleScroll('#header', setIsMenuScrolled));
 
-        return function unmount() {
+        return () => {
             window.removeEventListener('resize', updateWindowDimensions);
-            window.removeEventListener('scroll', () => handleScroll('#header', setIsMenuScrolled));
         }
-    });
+    }, [width]);
 
     function handleMenuClick(e) {
         e.preventDefault();
@@ -53,7 +48,6 @@ function AppProvider(props) {
                 state: {
                     isLoading: isLoading,
                     isMobile: isMobile,
-                    isMenuScrolled: isMenuScrolled,
                     menuOpen: menuOpen,
                     width: width,
                     height: height,
@@ -62,7 +56,7 @@ function AppProvider(props) {
                 },
                 setMenuOpen: (e) => handleMenuClick(e),
                 setIsLoading: (e) => handleLoading(e),
-                setToastMessage: (message) =>  ref.current(message),
+                setToastMessage: (message) => ref.current(message),
             }}>
             {props.children}
         </AppContext.Provider>

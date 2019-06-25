@@ -11,7 +11,6 @@ import {
     StyledMobileCardText,
     StyledMobileCardImage,
     StyledMobileCardLink,
-    StyledMobileCardContainer,
 } from './card.styles';
 import Arrow from '../../../static/icons/arrow.svg';
 
