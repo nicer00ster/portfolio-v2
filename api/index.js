@@ -60,8 +60,8 @@ app.use(bodyParser.json());
 app.post('/api/contact', (req, res) => {
     const { name, email, message } = req.body;
     sendEmail(name, email, message)
-        .then((response) => {
-            res.send({ response });
+        .then(data => {
+            res.send({ response: data.response });
         })
         .catch(err => {
             res.send({ error: err });
