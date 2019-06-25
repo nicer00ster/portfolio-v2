@@ -3,9 +3,10 @@ After a year of releasing my first version of my portfolio, I've decided to upda
 
 ### Tech Stack
 - React
+- React Spring
 - Next.JS
+- Serverless Lambdas
 - Styled Components
-- WebGL (Three.JS)
 - Progressive Web App
 - Hosted on Now
 
