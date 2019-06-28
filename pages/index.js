@@ -3,6 +3,8 @@ import Hero from '../components/kit/hero';
 import Card from '../components/kit/card';
 import Section from '../components/kit/section';
 import Terminal from '../components/kit/terminal';
+import Tree from '../components/kit/tree';
+import Sparkles from '../components/kit/sparkles';
 
 function Home() {
     return (
@@ -10,9 +12,9 @@ function Home() {
             <Hero
                 heading="Alex Busch"
                 subheading="Highly proficient in fully responsive design and a strong passion for clean, maintainable code that scales.">
-                <Card fade="zoom-in-right" data-aos-delay="100"/>
-                <Card fade="zoom-in-right" data-aos-delay="200"/>
-                <Card fade="zoom-in-right" data-aos-delay="300"/>
+                <Card fade="zoom-in-right" data-aos-delay="100" />
+                <Card fade="zoom-in-right" data-aos-delay="200" flex={2} />
+                <Card fade="zoom-in-right" data-aos-delay="300" />
             </Hero>
             <Section position="right" rotate="12deg">
                 <Terminal
@@ -22,7 +24,8 @@ function Home() {
                 />
             </Section>
             <Section position="left" rotate="-12deg">
-                <Card fade="zoom-in-left" />
+                <Sparkles />
+                <Tree />
             </Section>
         </Container>
     );

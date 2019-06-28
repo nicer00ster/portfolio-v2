@@ -50,7 +50,7 @@ function Card(props) {
     }
     return (
         <StyledCard {...props}>
-
+            {props.children}
         </StyledCard>
     );
 };

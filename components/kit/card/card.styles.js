@@ -1,5 +1,14 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { animated } from 'react-spring';
+
+const dashAnimation = keyframes`
+    0% {
+      background-position: left top, right bottom, left bottom, right top;
+    }
+    100% {
+      background-position: left 15px top, right 15px bottom, left bottom 15px, right top 15px;
+    }
+`;
 
 const StyledCard = styled(animated.div).attrs(props => ({
     "data-aos": props.fade,
@@ -7,7 +16,7 @@ const StyledCard = styled(animated.div).attrs(props => ({
 }))`
   position: relative;
   display: flex;
-  flex: 1;
+  flex: ${props => props.flex ? props.flex : 1};
   width: 100%;
   margin: 1rem;
   border-radius: ${props => props.theme.effects.radius};
@@ -18,11 +27,25 @@ const StyledCard = styled(animated.div).attrs(props => ({
   ${props => props.type !== 'project' ? css`
       min-height: 400px;
       min-width: 225px;
-      max-width: 350px;
+      //max-width: 350px;
   ` : ''};
   &:hover, &:active {
     box-shadow: ${props => props.theme.effects.shadowHover};
   }
+//   ${props => props.dashAnimation ? css`
+//     &:before {
+//         content: "";  
+//         align-self: center;
+//         border-radius: ${props => props.theme.effects.radius};
+//         margin: 0 auto;
+//         width: 95%;
+//         height: 95%;
+//         background: linear-gradient(90deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(90deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(0deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(0deg, ${props.theme.colors.lightBlack} 50%, transparent 50%);
+//         background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+//         background-size: 12px 2px,12px 2px,2px 12px,2px 12px;
+//         animation: ${dashAnimation} 2s infinite linear;
+//     }
+// ` : ''};
 `;
 
 const StyledProjectCard = styled(StyledCard)`

@@ -35,6 +35,8 @@ function Form() {
     const { value: email, bind: bindEmail, reset: resetEmail, setError: setEmailError, hasError: emailError } = useInput('');
     const { value: message, bind: bindMessage, reset: resetMessage, setError: setMessageError, hasError: messageError } = useInput('');
     const [isLoading, setLoading] = useState(false);
+    const [formSuccess, setFormSuccess] = useState(false);
+    const [formFailed, setFormFailed] = useState(false);
     const { state, setToastMessage } = useContext(AppContext);
 
     const handleSubmit = (e, data) => {
@@ -70,8 +72,10 @@ function Form() {
             body: JSON.stringify(data),
         }).then(res => {
             if(res.status === 200) {
+                setFormSuccess(true);
                 setLoading(false);
             } else {
+                setFormFailed(true);
                 throw new Error('Something went wrong.');
             }
         }).catch(err => {
@@ -84,7 +88,7 @@ function Form() {
     };
 
     return (
-        <StyledForm fade="fade-left" duration="250" onSubmit={e => handleSubmit(e, { name, email, message })}>
+        <StyledForm fade="fade-left" duration="250" formSuccess={formSuccess} formFailed={formFailed} onSubmit={e => handleSubmit(e, { name, email, message })}>
             <Sparkles />
             <fieldset disabled={isLoading} aria-busy={isLoading}>
                 <StyledFormHeading>Get In Touch</StyledFormHeading>

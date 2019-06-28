@@ -20,12 +20,14 @@ const StyledForm = styled.form.attrs(props => ({
   line-height: 1.5;
   box-shadow: ${props => props.theme.effects.shadow};
   transition: all 0.25s ease !important;
+  //overflow: ${props => props.formSucess ? 'hidden' : ''};
   &:hover {
       box-shadow: ${props => props.theme.effects.shadowHover};
   }
   fieldset {
     border: 0;
     padding: 1.6rem;
+    //transform: ${props => props.formSuccess ? 'translateX(600px)' : ''};
     &[disabled] {
       opacity: 0.5;
     }
