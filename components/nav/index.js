@@ -44,11 +44,11 @@ function Header() {
         <StyledHeader id="header" className={`${isTop ? 'is-scrolled' : ''}`}>
             <div className="header-container">
                 <Link href="/" scroll={true}>
-                    <StyledLogo menuOpen={state.menuOpen}>◈</StyledLogo>
+                    <StyledLogo className="logo" menuOpen={state.menuOpen}>◈</StyledLogo>
                 </Link>
                 {!state.isMobile && <Nav />}
                 {state.isMobile && <Burger onClick={e => setMenuOpen(e)} menuOpen={state.menuOpen} />}
-                {state.isMobile && <Drawer aria-expanded={state.menuOpen} />}
+                {state.isMobile && <Drawer menuOpen={state.menuOpen} aria-expanded={state.menuOpen} />}
             </div>
         </StyledHeader>
     );

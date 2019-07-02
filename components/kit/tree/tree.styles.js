@@ -18,7 +18,7 @@ const StyledBranchTitle = styled.span`
 
 const StyledBranchContent = styled(animated.div)`
   will-change: transform, opacity, height;
-  margin-left: 10px;
+  margin-left: 8px;
   padding: 0 0 0 14px;
   border-left: 1px dashed ${props => props.theme.colors.black};
   overflow: hidden;
@@ -32,8 +32,12 @@ const StyledTree = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-radius: ${props => props.theme.effects.radius};
   box-shadow: ${props => props.theme.effects.shadow};
-  font-size: 24px;
+  font-size: 20px;
   ${props => props.theme.mediaQuery.tablet`
+      width: 75%;
+      font-size: 18px;
+  `};
+  ${props => props.theme.mediaQuery.phone`
       width: 100%;
   `};
 `;

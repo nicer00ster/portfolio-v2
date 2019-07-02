@@ -55,21 +55,19 @@ const Branch = memo(({ children, name, style, notCollapsable = false, defaultOpe
 });
 
 const Tree = () => {
-    // const [subBranchOpen, setSubBranchOpen] = useState(false);
-
     return (
         <StyledTree data-aos="zoom-in-up">
-            <Branch name="nicer00ster" defaultOpen notCollapsable>
+            <Branch name="alex busch" defaultOpen notCollapsable>
                 <Branch name="hello there" />
                 <Branch name="skills">
                     <Branch name="development">
-                        <Branch name="javascript" style={{ color: '#F7df1c' }} />
+                        <Branch name="javascript" style={{ color: '#F7df1c', textShadow: '1px 2px 1px #1f222e' }} />
                         <Branch name="react" style={{ color: '#05d7ff' }} />
                         <Branch name="react-native" style={{ color: '#5cd3ff' }} />
                         <Branch name="redux" style={{ color: '#9385c4' }} />
                         <Branch name="nextjs" style={{ color: '#1f222e' }} />
-                        <Branch name="nodejs" style={{ color: '#88Bc5B' }} />
-                        <Branch name="python/django" style={{ color : '#2Ca977' }} />
+                        <Branch name="nodejs" style={{ color: '#88bc5b' }} />
+                        <Branch name="python/django" style={{ color : '#2ca977' }} />
                         <Branch name="php" style={{ color: '#9aa0c6' }} />
                         <Branch name="wordpress" style={{ color: '#50849a' }} />
                     </Branch>
@@ -85,9 +83,8 @@ const Tree = () => {
                     <Branch name="cooking" style={{ color: '#faa1bc' }}/>
                     <Branch name="fitness" style={{ color: '#80dad3' }}/>
                     <Branch name="reading" style={{ color: '#92c5f8' }}/>
-                    <Branch name="self-growth" style={{ color: '#ffeaa7' }}/>
+                    <Branch name="bubbly beverages" style={{ color: '#fa7eff' }}/>
                 </Branch>
-                <Branch name={<span>🙀 something something</span>}/>
             </Branch>
         </StyledTree>
     );

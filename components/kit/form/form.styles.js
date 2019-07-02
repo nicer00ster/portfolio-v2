@@ -14,20 +14,31 @@ const StyledForm = styled.form.attrs(props => ({
     "data-aos-duration": props.duration,
 }))`
   width: 50%;
-  margin: 1rem;
   border-radius: ${props => props.theme.effects.radius};
   background-color: ${props => props.theme.colors.white};
   line-height: 1.5;
   box-shadow: ${props => props.theme.effects.shadow};
   transition: all 0.25s ease !important;
-  //overflow: ${props => props.formSucess ? 'hidden' : ''};
+  overflow: ${props => props.formStatus !== '' ? 'unset' : 'hidden'};
+  opacity: 1;
+  position: relative;
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    position: absolute;
+  }
   &:hover {
       box-shadow: ${props => props.theme.effects.shadowHover};
   }
   fieldset {
+    position: relative;
     border: 0;
     padding: 1.6rem;
-    //transform: ${props => props.formSuccess ? 'translateX(600px)' : ''};
+    transform: ${props => props.formStatus === 'success' ? 'translateY(500px)' : ''};
+    opacity: ${props => props.formStatus === 'success' ? '0' : '1'};
+    transition: all 0.5s 0.35s cubic-bezier(0.55, 0, 0.1, 1) !important;
     &[disabled] {
       opacity: 0.5;
     }
@@ -36,16 +47,16 @@ const StyledForm = styled.form.attrs(props => ({
       animation: ${loading} 0.5s linear infinite;
     }
     &::before {
-      height: 2px;
       content: '';
       display: block;
+      height: 2px;
       background-image: linear-gradient(
         to right,
         ${props => props.theme.colors.scheme.first} 0%,
         ${props => props.theme.colors.scheme.third} 50%,
         ${props => props.theme.colors.scheme.first} 100%
       );
-    } 
+    }
   }
   ${props => props.theme.mediaQuery.tablet`
     width: 100%;

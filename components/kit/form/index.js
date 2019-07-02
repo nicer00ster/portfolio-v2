@@ -5,7 +5,6 @@ import {
     StyledFormHeading,
 } from './form.styles';
 import Button from '../button';
-import Sparkles from '../sparkles';
 import { AppContext } from '../../provider';
 
 const useInput = (initialValue) => {
@@ -35,8 +34,7 @@ function Form() {
     const { value: email, bind: bindEmail, reset: resetEmail, setError: setEmailError, hasError: emailError } = useInput('');
     const { value: message, bind: bindMessage, reset: resetMessage, setError: setMessageError, hasError: messageError } = useInput('');
     const [isLoading, setLoading] = useState(false);
-    const [formSuccess, setFormSuccess] = useState(false);
-    const [formFailed, setFormFailed] = useState(false);
+    const [formStatus, setFormStatus] = useState('');
     const { state, setToastMessage } = useContext(AppContext);
 
     const handleSubmit = (e, data) => {
@@ -72,10 +70,10 @@ function Form() {
             body: JSON.stringify(data),
         }).then(res => {
             if(res.status === 200) {
-                setFormSuccess(true);
+                setFormStatus('success');
                 setLoading(false);
             } else {
-                setFormFailed(true);
+                setFormStatus('error');
                 throw new Error('Something went wrong.');
             }
         }).catch(err => {
@@ -88,8 +86,9 @@ function Form() {
     };
 
     return (
-        <StyledForm fade="fade-left" duration="250" formSuccess={formSuccess} formFailed={formFailed} onSubmit={e => handleSubmit(e, { name, email, message })}>
-            <Sparkles />
+        <StyledForm
+            formSuccess={formStatus}
+            onSubmit={e => handleSubmit(e, { name, email, message })}>
             <fieldset disabled={isLoading} aria-busy={isLoading}>
                 <StyledFormHeading>Get In Touch</StyledFormHeading>
                 <StyledInput>

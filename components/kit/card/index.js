@@ -17,7 +17,7 @@ import Arrow from '../../../static/icons/arrow.svg';
 function Card(props) {
     if(props.type === 'mobile') {
         return (
-            <StyledMobileCard workType={props.workType} fade={props.fade} duration={props.duration} gradient={props.gradient} {...props}>
+            <StyledMobileCard duration={props.duration} gradient={props.gradient} {...props}>
                 <StyledMobileCardImage src={props.src} alt={props.alt} className="card-image"/>
                 <StyledMobileCardContent className="card-content">
                     <StyledMobileCardText className="card-text">{props.title}</StyledMobileCardText>
@@ -33,7 +33,7 @@ function Card(props) {
     }
     if(props.type === 'project') {
         return (
-            <StyledProjectCard fade={props.fade} duration={props.duration} background={props.gradient} {...props}>
+            <StyledProjectCard duration={props.duration} gradient={props.gradient} {...props}>
                 <StyledCardImage src={props.src} alt={props.alt} imageSize={props.imageSize} className="card-image"/>
                 <StyledCardContent className="card-content">
                     <StyledCardText className="card-text">{props.title}</StyledCardText>

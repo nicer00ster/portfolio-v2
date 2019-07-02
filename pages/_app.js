@@ -6,6 +6,10 @@ import Layout from '../components/layout';
 import AppProvider from '../components/provider';
 
 class CustomApp extends App {
+    state = {
+        isMounted: false,
+    };
+
     static async getInitialProps({ Component, ctx }) {
         let pageProps = {};
         const token = "intro_token";
@@ -26,12 +30,21 @@ class CustomApp extends App {
 
         return { pageProps };
     }
+
+    componentDidMount() {
+        this.setState({
+            isMounted: true,
+        });
+    }
+
     removeCookie(ctx) {
         return destroyCookie(ctx, 'token');
     }
     render() {
         const { Component, pageProps } = this.props;
-        if(!pageProps.cookie) {
+        if(!this.state.isMounted) {
+            return 'Loading...';
+        } else if(!pageProps.cookie) {
             return (
                 <Container>
                     <AppProvider>

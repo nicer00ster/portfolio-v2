@@ -10,7 +10,6 @@ const StyledHero = styled.section`
   font-size: 2rem;
   color: ${props => props.theme.colors.first};
   letter-spacing: 2px;
-  padding: 0 1rem;
 `;
 
 const StyledHeroHeading = styled.h1`

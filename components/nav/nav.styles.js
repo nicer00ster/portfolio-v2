@@ -73,7 +73,7 @@ const StyledNavList = styled.ul`
   transition: all 0.35s ease-in-out;
   & li {
     & a {
-       padding: 10px;
+      padding: 10px;
       font-weight: bold;
       &.active {
         &:before {

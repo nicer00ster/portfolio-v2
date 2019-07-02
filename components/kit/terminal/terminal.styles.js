@@ -24,7 +24,6 @@ const StyledTerminal = styled.div`
     }
     ${props => props.theme.mediaQuery.tablet`
         width: 100%;
-        height: 40vh;
     `}
 `;
 

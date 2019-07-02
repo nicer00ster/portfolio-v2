@@ -6,7 +6,7 @@ const StyledSection = styled.section`
   align-items: center;
   width: 100%;
   height: auto;
-  margin: 25vh 2rem;
+  margin: 25vh 1rem;
   position: relative;
 `;
 
@@ -22,6 +22,9 @@ const StyledSectionChildren = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  ${props => props.theme.mediaQuery.tablet`
+    justify-content: center;
+  `};
 `;
 
 const StyledSectionBackground = styled.div`

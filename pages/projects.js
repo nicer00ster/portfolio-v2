@@ -18,7 +18,7 @@ function Projects() {
                 <title>Alex Busch - Projects</title>
             </Head>
             <Hero
-                heading="Alex Busch"
+                heading="My Projects"
                 subheading="Recognized for developing robust back-end structures and producing accessible, responsive designs.">
                 <Card fade="zoom-in-left" data-aos-delay="100"/>
                 <Card fade="zoom-in-left" data-aos-delay="200"/>

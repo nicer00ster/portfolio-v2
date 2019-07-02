@@ -9,13 +9,13 @@ import Sparkles from '../kit/sparkles';
 import SocialSharing from '../kit/social';
 import ActiveLink from './ActiveLink';
 
-function Drawer() {
-    const { state } = useContext(AppContext);
+function Drawer(props) {
+    // const { state } = useContext(AppContext);
     return (
-        <StyledDrawer menuOpen={state.menuOpen}>
+        <StyledDrawer menuOpen={props.menuOpen}>
             <StyledDrawerBackground
                 rotate="-12deg"
-                menuOpen={state.menuOpen}>
+                menuOpen={props.menuOpen}>
             <Sparkles />
             </StyledDrawerBackground>
             <StyledDrawerList>

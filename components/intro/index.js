@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSpring } from 'react-spring';
 
-import Sparkles from '../kit/sparkles';
 import {
     StyledIntro,
     StyledIntroItem,
     StyledIntroButton,
 } from "./intro.styles";
+import Sparkles from '../kit/sparkles';
 import Cover from '../../static/images/cover.svg';
 import Meteor from '../../static/images/meteor.svg';
 import Moon from '../../static/images/moon.svg';

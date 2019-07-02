@@ -24,28 +24,28 @@ const StyledCard = styled(animated.div).attrs(props => ({
   box-shadow: ${props => props.theme.effects.shadow};
   transition: all 0.25s ease !important;
   background: ${props => props.theme.colors.white};
-  ${props => props.type !== 'project' ? css`
+  min-width: 225px;
+  ${props => props.type === 'mobile' ? css`
       min-height: 400px;
       min-width: 225px;
-      //max-width: 350px;
   ` : ''};
   &:hover, &:active {
     box-shadow: ${props => props.theme.effects.shadowHover};
   }
-//   ${props => props.dashAnimation ? css`
-//     &:before {
-//         content: "";  
-//         align-self: center;
-//         border-radius: ${props => props.theme.effects.radius};
-//         margin: 0 auto;
-//         width: 95%;
-//         height: 95%;
-//         background: linear-gradient(90deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(90deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(0deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(0deg, ${props.theme.colors.lightBlack} 50%, transparent 50%);
-//         background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-//         background-size: 12px 2px,12px 2px,2px 12px,2px 12px;
-//         animation: ${dashAnimation} 2s infinite linear;
-//     }
-// ` : ''};
+  ${props => props.dashAnimation ? css`
+    &:before {
+        content: "";  
+        align-self: center;
+        border-radius: ${props => props.theme.effects.radius};
+        margin: 0 auto;
+        width: 95%;
+        height: 95%;
+        background: linear-gradient(90deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(90deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(0deg, ${props.theme.colors.lightBlack} 50%, transparent 50%), linear-gradient(0deg, ${props.theme.colors.lightBlack} 50%, transparent 50%);
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-size: 12px 2px,12px 2px,2px 12px,2px 12px;
+        animation: ${dashAnimation} 2s infinite linear;
+    }
+ ` : ''};
 `;
 
 const StyledProjectCard = styled(StyledCard)`
