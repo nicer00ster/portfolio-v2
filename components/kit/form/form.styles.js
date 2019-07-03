@@ -9,6 +9,18 @@ const loading = keyframes`
   }
 `;
 
+const circle = keyframes`
+  to {
+    stroke-dashoffset: 0;
+  }
+`;
+
+const check = keyframes`
+  to {
+    stroke-dashoffset: 0;
+  }
+`;
+
 const StyledForm = styled.form.attrs(props => ({
     "data-aos": props.fade,
     "data-aos-duration": props.duration,
@@ -36,7 +48,7 @@ const StyledForm = styled.form.attrs(props => ({
     position: relative;
     border: 0;
     padding: 1.6rem;
-    transform: ${props => props.formStatus === 'success' ? 'translateY(500px)' : ''};
+    transform: ${props => props.formStatus === 'success' ? 'translateY(500px)' : 'translateY(0px)'};
     opacity: ${props => props.formStatus === 'success' ? '0' : '1'};
     transition: all 0.5s 0.35s cubic-bezier(0.55, 0, 0.1, 1) !important;
     &[disabled] {
@@ -120,8 +132,36 @@ const StyledFormHeading = styled.h2`
     font-family: 'Trirong', serif;
 `;
 
+const StyledCheckmark = styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    & svg {
+      color: #87DFD6;
+      width: 100%;
+      height: 100%;
+      &.animate {
+        .circle {
+          stroke-dasharray: 531.2621459960938;
+          stroke-dashoffset: -531.2621459960938;
+          animation: ${circle} 2.5s cubic-bezier(.12,-0.01,.81,1.42) forwards;
+        }
+        .check {
+          stroke-dasharray: 18.391849517822266;
+          stroke-dashoffset: -18.391849517822266;
+          animation: ${check} 0.4s cubic-bezier(.55,.09,.59,.96) 2s forwards;
+        }
+      }
+    }
+`;
+
 export {
     StyledForm,
     StyledInput,
     StyledFormHeading,
+    StyledCheckmark,
 };

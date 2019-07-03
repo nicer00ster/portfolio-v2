@@ -27,7 +27,7 @@ function ActiveLink({ children, router, href }) {
     return (
         <StyledNavItem onClick={handleClick}>
             <Link scroll={false} prefetch href={href}>
-                <a className={`link ${activeClass}`}>{children}</a>
+                <a className={activeClass}>{children}</a>
             </Link>
         </StyledNavItem>
     );

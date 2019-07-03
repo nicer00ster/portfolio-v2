@@ -38,15 +38,7 @@ const StyledGridLink = styled.a`
   justify-content: center;
   align-items: center;
   left: calc(100% - 125px);
-  width: 100px;
-  height: 100px;
   border-radius: 50%;
-  box-shadow: ${props => props.theme.effects.shadow};
-  background-color: ${props => props.theme.colors.white};
-  transition: font-size 0.5s ease;
-  &:hover {
-    font-size: 16px;
-  }
 `;
 
 const StyledGridContent = styled.div`

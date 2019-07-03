@@ -7,7 +7,7 @@ import Loading from '../loading';
 function Button(props) {
     return (
         <StyledButton type={props.type} loading={props.loading}>
-            <StyledButtonLink type={props.type}>
+            <StyledButtonLink type={props.type} href={props.href} rel="noopener" target="_blank">
                 {props.loading && <Loading />}
                 <span>{props.text}</span>
             </StyledButtonLink>

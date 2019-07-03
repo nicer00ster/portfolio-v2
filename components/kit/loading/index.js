@@ -18,7 +18,7 @@ const Spinner = styled.span`
     margin-left: -15px;
     border-radius: 50%;
     border: 1px solid #ccc;
-    border-top-color: ${props => props.theme.colors.black};
+    border-top-color: #1f222e;
     animation: spinner .6s linear infinite;
   }
 `;

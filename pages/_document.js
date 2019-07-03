@@ -3,7 +3,7 @@ import { ServerStyleSheet } from 'styled-components';
 import { parseCookies } from 'nookies';
 
 export default class CustomDocument extends Document {
-    static async getInitialProps (ctx) {
+    static async getInitialProps(ctx) {
         const sheet = new ServerStyleSheet();
         const originalRenderPage = ctx.renderPage;
         const cookie = parseCookies(ctx);

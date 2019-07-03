@@ -5,9 +5,6 @@
   "main": "index.js",
   "author": "Alex Busch",
   "license": "ISC",
-  "engines": {
-    "node": "12.4.0"
-  },
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
@@ -30,6 +27,7 @@
     "nprogress": "^0.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-dom-confetti": "^0.1.1",
     "react-measure": "^2.3.0",
     "react-spring": "^8.0.25",
     "resize-observer-polyfill": "^1.5.1",

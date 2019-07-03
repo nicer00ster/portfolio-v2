@@ -19,7 +19,6 @@ Router.onRouteChangeStart = () => {
 Router.onRouteChangeComplete = () => {
     NProgress.done();
 };
-
 function Header() {
     const { state, setMenuOpen } = useContext(AppContext);
     const [isTop, setIsTop] = useState(false);
@@ -30,14 +29,12 @@ function Header() {
         } else {
             setIsTop(false);
         }
-    }, []);
+    });
 
     useEffect(() => {
         window.addEventListener('scroll', handleWindowScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleWindowScroll);
-        }
+        return () => window.removeEventListener('scroll', handleWindowScroll);
     }, [handleWindowScroll]);
 
     return (

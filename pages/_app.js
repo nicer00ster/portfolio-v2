@@ -3,6 +3,7 @@ import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
 import Intro from '../components/intro';
 import Layout from '../components/layout';
+import Loading from '../components/kit/loading';
 import AppProvider from '../components/provider';
 
 class CustomApp extends App {
@@ -43,7 +44,7 @@ class CustomApp extends App {
     render() {
         const { Component, pageProps } = this.props;
         if(!this.state.isMounted) {
-            return 'Loading...';
+            return <Loading />;
         } else if(!pageProps.cookie) {
             return (
                 <Container>

@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import Head from 'next/head';
 import { useContext } from 'react';
 
@@ -5,12 +6,15 @@ import Hero from '../components/kit/hero';
 import Container from '../components/kit/container';
 import Section from '../components/kit/section';
 import Card from '../components/kit/card';
-import CardGrid from '../components/kit/card/grid';
+import Loading from '../components/kit/loading';
+const CardGrid = React.lazy(() => import('../components/kit/card/grid'));
 import { StyledMobileCardContainer } from "../components/kit/card/card.styles";
 import { AppContext } from '../components/provider';
 import projectData from '../static/projectData';
+import { smoothScroll } from '../helpers/hooks';
 
 function Projects() {
+    smoothScroll();
     const { state } = useContext(AppContext);
     return (
         <Container>
@@ -42,7 +46,9 @@ function Projects() {
                             />
                         ))};
                     </StyledMobileCardContainer>
-                     : <CardGrid />}
+                     : <Suspense fallback={<Loading />}>
+                         <CardGrid />
+                       </Suspense>}
             </Section>
         </Container>
     );

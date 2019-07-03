@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { useSpring } from 'react-spring';
 import { ThemeProvider } from 'styled-components';
 import AOS from "aos";
 
@@ -27,17 +28,11 @@ const theme = {
 
 function Layout(props) {
     const { state } = useContext(AppContext);
-    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        setIsMounted(true);
         AOS.init();
         AOS.refresh();
-
-        return function unmounted() {
-            setIsMounted(false);
-        }
-    });
+    }, []);
 
     return (
       <ThemeProvider theme={theme}>
@@ -46,7 +41,7 @@ function Layout(props) {
               rotate="-12deg"
               menuOpen={state.menuOpen}
           />
-          {isMounted && <Header />}
+          <Header />
           <LayoutStyles menuOpen={state.menuOpen}>
               <Meta />
               <GlobalStyles menuOpen={state.menuOpen} />

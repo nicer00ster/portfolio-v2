@@ -11,7 +11,7 @@ const LayoutStyles = styled.main`
   transition: all 0.25s linear;
   opacity: ${props => props.menuOpen ? '0.4' : '1'};
   transform: ${props => props.menuOpen ? 'scale(0.95)' : ''};
-  overflow: ${props => props.menuOpen ? 'hidden' : ''};
+  overflow: ${props => props.menuOpen ? 'hidden' : 'visible'};
   pointer-events: ${props => props.menuOpen ? 'none' : 'all'};
   ${props => props.theme.mediaQuery.tablet`
     padding: 0;
@@ -85,7 +85,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: 1rem;
       padding: 0;
       margin: 0;
-      overflow: ${props => props.menuOpen ? 'hidden' : ''};
+      overflow: ${props => props.menuOpen ? 'hidden' : 'auto'};
       overflow-x: hidden;
     }
     a {

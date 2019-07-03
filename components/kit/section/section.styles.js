@@ -6,7 +6,8 @@ const StyledSection = styled.section`
   align-items: center;
   width: 100%;
   height: auto;
-  margin: 25vh 1rem;
+  min-height: 400px;
+  margin: 15vh 1rem;
   position: relative;
 `;
 
@@ -43,7 +44,7 @@ const StyledSectionBackground = styled.div`
     & div.grid {
         align-content: end;
         min-width: 0;
-        position: absolute;
+        position: relative;
         width: 100%;
         height: 600px;
         display: grid;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { config } from 'react-spring/renderprops.cjs';
 import Grid from './Grid'
 import { Slug, Fade } from './Primitives'
 import data from '../../../../static/projectData.js';
 
 import Card from '../';
+import Button from '../../button';
 import { StyledToastButtonClose } from '../../../kit/toast/toast.styles';
 import {
     StyledGridDetails,
@@ -34,11 +34,11 @@ class GridItem extends Component {
                 <Fade show={active} delay={active ? 500 : 0}>
                     <StyledGridDetails className="details">
                         <StyledGridWork type={type} isMobile={isMobile}>
-                            <img src={workImage} />
+                            <img src={workImage} alt={title} />
                         </StyledGridWork>
                         <Slug delay={600}>
                             <StyledGridLink href={url} rel="noopener" target="_blank">
-                                GO!
+                                <Button href={url} text="GO!"/>
                             </StyledGridLink>
                             <StyledGridClose onClick={toggle}>
                                 <StyledToastButtonClose />
@@ -76,7 +76,7 @@ class CardGrid extends Component {
                         keys={data => data.title}
                         heights={data => data.height}
                         type={data => data.type}
-                        imageSize={data => data.imageSize}
+                        imageSize=  {data => data.imageSize}
                         isMobile={ctx.state.isMobile}
                         columns={3}
                         margin={30}

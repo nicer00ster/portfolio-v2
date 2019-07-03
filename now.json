@@ -23,10 +23,6 @@
     {
       "src": "/api/index.js",
       "use": "@now/node"
-    },
-    {
-      "src": "static/*",
-      "use": "@now/static"
     }
   ],
   "env": {

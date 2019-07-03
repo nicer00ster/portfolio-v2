@@ -1,14 +1,16 @@
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
-import Form from '../components/kit/form';
 import Hero from '../components/kit/hero';
 import Container from '../components/kit/container';
 import Section from '../components/kit/section';
 import Card from '../components/kit/card';
 import Sparkles from '../components/kit/sparkles';
-import Tree from "../components/kit/tree";
+import Form from '../components/kit/form';
+import { smoothScroll } from '../helpers/hooks';
 
 function Contact() {
+    smoothScroll();
     return (
         <Container>
             <Head>
@@ -25,9 +27,7 @@ function Contact() {
                 <Sparkles />
                 <Form />
             </Section>
-            <Section position="left" rotate="-12deg">
-                <Card />
-            </Section>
+
         </Container>
     );
 }

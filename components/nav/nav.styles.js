@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.header`
   position: sticky;
-  background-color: transparent;
   top: 0;
   padding-top: 0;
   transition: all 0.25s ease-in;
   width: 100%;
-  z-index: 9999;
+  z-index: 1001;
   &.is-scrolled {
     background-color: ${props => props.theme.colors.white};
     box-shadow: ${props => props.theme.effects.shadow};
