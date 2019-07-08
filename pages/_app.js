@@ -45,17 +45,16 @@ class CustomApp extends App {
         const { Component, pageProps } = this.props;
         if(!this.state.isMounted) {
             return <Loading />;
-        } else if(!pageProps.cookie) {
-            return (
-                <Container>
-                    <AppProvider>
-                        <Layout>
-                            <Component {...pageProps} />
-                        </Layout>
-                    </AppProvider>
-                </Container>
-            );
-
+        // } else if(!pageProps.cookie) {
+        //     return (
+        //         <Container>
+        //             <AppProvider>
+        //                 <Layout>
+        //                     <Component {...pageProps} />
+        //                 </Layout>
+        //             </AppProvider>
+        //         </Container>
+        //     );
         } else {
             return <Intro removeCookie={this.removeCookie} />
         }

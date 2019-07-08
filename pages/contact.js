@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 import Hero from '../components/kit/hero';
@@ -19,9 +18,9 @@ function Contact() {
             <Hero
                 heading="Need to get in touch?"
                 subheading="Readily available to take on fun & exciting freelance work. Have an idea that you want to bring to life? Fill out the form below!">
-                <Card fade="zoom-in-right" data-aos-delay="100"/>
-                <Card fade="zoom-in-right" data-aos-delay="200"/>
-                <Card fade="zoom-in-right" data-aos-delay="300"/>
+                {/*<Card fade="zoom-in-right" data-aos-delay="100"/>*/}
+                {/*<Card fade="zoom-in-right" data-aos-delay="200"/>*/}
+                {/*<Card fade="zoom-in-right" data-aos-delay="300"/>*/}
             </Hero>
             <Section position="right" rotate="12deg">
                 <Sparkles />

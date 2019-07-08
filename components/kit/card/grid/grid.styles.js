@@ -32,7 +32,7 @@ const StyledGridDescription = styled.p`
   width: 80%;
 `;
 
-const StyledGridLink = styled.a`
+const StyledGridLink = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;

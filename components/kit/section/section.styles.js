@@ -23,6 +23,7 @@ const StyledSectionChildren = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  min-height: 600px;
   ${props => props.theme.mediaQuery.tablet`
     justify-content: center;
   `};

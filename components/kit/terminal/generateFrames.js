@@ -223,7 +223,7 @@ function generateFrames(onRender) {
                 <>
                     <br /><span style={{ color: "palegreen" }}>✔ </span>exporting apron: /apron
                     <br /><span style={{ color: "palegreen" }}>✔ </span>exporting knife: /knife
-                    <br /><span style={{ color: "palegreen" }}>✔ </span>exporting sweat: /sweat <br />
+                    <br /><span style={{ color: "palegreen" }}>✔ </span>exporting burns: /burns<br />
                     <br />
                 </>
             )
@@ -234,7 +234,7 @@ function generateFrames(onRender) {
             6: (
                 <>
                  <span className="bold">
-                     <span style={{ color: 'palegreen' }}>🎉 sucessfully imported dev 🎉</span>
+                     <span style={{ color: 'palegreen' }}>🎉 successfully imported dev 🎉</span>
                      <br />
                      <span role="img" aria-label="star">
                      ✨

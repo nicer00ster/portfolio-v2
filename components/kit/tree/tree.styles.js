@@ -38,7 +38,7 @@ const StyledTree = styled.div`
       font-size: 18px;
   `};
   ${props => props.theme.mediaQuery.phone`
-      width: 100%;
+      width: 97%;
   `};
 `;
 

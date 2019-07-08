@@ -37,7 +37,7 @@ class GridItem extends Component {
                             <img src={workImage} alt={title} />
                         </StyledGridWork>
                         <Slug delay={600}>
-                            <StyledGridLink href={url} rel="noopener" target="_blank">
+                            <StyledGridLink>
                                 <Button href={url} text="GO!"/>
                             </StyledGridLink>
                             <StyledGridClose onClick={toggle}>

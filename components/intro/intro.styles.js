@@ -110,10 +110,21 @@ const StyledIntroButton = styled.a`
       z-index: 1;
       font-weight: normal;
       transition: all 0.25s ease;
+      &:before {
+       content: "< ";
+       transition: opacity 0.25s ease-in;
+       opacity: 0;
+      }
+      &:after {
+        content: " />";
+        transition: opacity 0.25s ease-in;
+        opacity: 0;
+      }
       &:hover {
-        color: #535c68;
-        font-size: 4.5rem;
-        letter-spacing: 4px;
+        letter-spacing: 2px;
+        &:before, &:after {
+          opacity: 1;
+        }
       }
 `;
 

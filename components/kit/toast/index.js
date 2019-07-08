@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useTransition, useSpring } from "react-spring";
+import { useTransition } from "react-spring";
 import debounce from 'lodash.debounce';
 import {
     StyledToastContainer,
@@ -11,7 +11,7 @@ import {
     StyledToastButtonClose,
 } from './toast.styles';
 
-function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.1 }, timeout = 105000, children }) {
+function AppNotifications({ config = { tension: 125, friction: 20, precision: 0.1 }, timeout = 5000, children }) {
     const [refMap] = useState(() => new WeakMap());
     const [cancelMap] = useState(() => new WeakMap());
     const [items, setItems] = useState([]);

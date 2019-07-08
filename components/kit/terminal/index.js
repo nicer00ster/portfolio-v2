@@ -37,7 +37,7 @@ function Terminal(props) {
                 </StyledTerminalTitle>
             </StyledTerminalToolbar>
             <StyledTerminalContent>
-                <pre>{trigger ? generateFrames() : ''}</pre>
+                <pre>{trigger && generateFrames()}</pre>
             </StyledTerminalContent>
         </StyledTerminal>
     );

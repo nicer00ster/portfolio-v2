@@ -30,6 +30,7 @@ const StyledHeroSubheading = styled.h2`
 const StyledHeroChildren = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
   flex-wrap: wrap;
   margin-top: 4rem;
   margin-bottom: 4rem;
