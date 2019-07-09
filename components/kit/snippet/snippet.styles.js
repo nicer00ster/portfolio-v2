@@ -39,7 +39,12 @@ const StyledSnippetCode = styled.pre`
     flex-direction: column;
     width: 100%;
     padding: 1.2rem .6rem;
-`;
+    ${props => props.theme.mediaQuery.phone`
+        font-size: 10px;
+        letter-spacing: 0;
+        padding: .8rem .4rem;
+    `};
+    `;
 
 const StyledSnippetMenu = styled.ul`
     display: flex;
@@ -48,6 +53,11 @@ const StyledSnippetMenu = styled.ul`
     padding-left: 1.6rem;
     padding-top: 1.6rem;
     margin: 0;
+    ${props => props.theme.mediaQuery.phone`
+        font-size: 12px;
+        padding-left: .8rem;
+        padding-top: .8rem;
+    `};
 `;
 
 const StyledSnippetMenuItem = styled.li`
@@ -72,6 +82,12 @@ const StyledSnippetLine = styled(animated.span)`
     text-align: right;
     width: 18px;
   }
+  ${props => props.theme.mediaQuery.phone`
+    &:before {
+        margin-right: 8px;
+        width: 12px;
+    }
+  `};
 `;
 
 const StyledSnippetHeader = styled.div`
@@ -84,6 +100,9 @@ const StyledSnippetButtons = styled.div`
     display: inline-block;
     padding-left: 1.8rem;
     overflow: auto;
+    ${props => props.theme.mediaQuery.phone`
+        padding-left: 1rem;
+    `};
 `;
 
 const StyledSnippetButton = styled.span`

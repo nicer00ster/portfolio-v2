@@ -1,4 +1,4 @@
-import { useContext, useCallback, useState, useEffect } from 'react';
+import React, { useContext, useCallback, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -6,6 +6,7 @@ import NProgress from 'nprogress';
 import Nav from './Nav';
 import Drawer from './Drawer';
 import Burger from '../kit/burger';
+import Logo from '../../static/images/logo.svg';
 import {
     StyledHeader,
     StyledLogo,
@@ -21,13 +22,13 @@ Router.onRouteChangeComplete = () => {
 };
 function Header() {
     const { state, setMenuOpen } = useContext(AppContext);
-    const [isTop, setIsTop] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const handleWindowScroll = useCallback(e => {
         if(e.path[1].scrollY > 0) {
-            setIsTop(true);
+            setIsScrolled(true);
         } else {
-            setIsTop(false);
+            setIsScrolled(false);
         }
     });
 
@@ -38,10 +39,10 @@ function Header() {
     }, [handleWindowScroll]);
 
     return (
-        <StyledHeader id="header" className={`${isTop ? 'is-scrolled' : ''}`}>
+        <StyledHeader id="header" className={`${isScrolled ? 'is-scrolled' : ''}`}>
             <div className="header-container">
                 <Link href="/" scroll={true}>
-                    <StyledLogo className="logo" menuOpen={state.menuOpen}>◈</StyledLogo>
+                    <StyledLogo className={`${isScrolled ? 'is-scrolled' : ''} logo`} menuOpen={state.menuOpen}><Logo width={50} height={50} /></StyledLogo>
                 </Link>
                 {!state.isMobile && <Nav />}
                 {state.isMobile && <Burger onClick={e => setMenuOpen(e)} menuOpen={state.menuOpen} />}

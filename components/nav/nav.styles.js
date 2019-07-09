@@ -96,14 +96,28 @@ const StyledLogo = styled.a`
   cursor: pointer;
   display: block;
   text-align: center;
+  padding-left: 12px;
   font-size: 72px;
-  width: 72px;
   color: ${props => props.theme.colors.black};
-  filter: drop-shadow(0 .5rem 0.25rem #1f222e);
-  transition: ease-in-out 0.35s;
+  transition: all ease-in-out 0.35s;
   opacity: ${props => props.menuOpen ? '0.4' : '1'};
   transform: ${props => props.menuOpen ? 'scale(0.95)': ''};
   pointer-events: ${props => props.menuOpen ? 'none' : 'all'};
+  &:after {
+    display: inline-block;
+    content: "Alex Busch";
+    margin-left: 16px;
+    font-size: 14px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.35s ease-in-out;
+  }
+  &.is-scrolled {
+    &:after {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
   ${props => props.theme.mediaQuery.tablet`
     font-size: 54px;
   `}
