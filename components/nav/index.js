@@ -25,7 +25,7 @@ function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
 
     const handleWindowScroll = useCallback(e => {
-        if(e.path[1].scrollY > 0) {
+        if(window.scrollY > 0) {
             setIsScrolled(true);
         } else {
             setIsScrolled(false);

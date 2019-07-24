@@ -55,7 +55,7 @@ class GridItem extends Component {
                     leave={{ opacity: 0, transform: 'translate3d(0,-50px,0)' }}
                     delay={active ? 0 : 200}>
                     <StyledGridContent>
-                        <p>{description}</p>
+                        <p className="card-description">{description}</p>
                         <StyledGridContentTitle style={{ zIndex: 1 }}>{title}</StyledGridContentTitle>
                     </StyledGridContent>
                 </Fade>

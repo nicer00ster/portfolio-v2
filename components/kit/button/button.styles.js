@@ -7,11 +7,13 @@ const StyledButton = styled.button`
   cursor: pointer;
   pointer-events: ${props => props.loading ? 'none' : 'all'};
   box-shadow: ${props => props.theme.effects.shadowHover};
+  border-radius: ${props => props.theme.effects.radius};
 `;
 
 const StyledButtonLink = styled.a`
   display: block;
   padding: 12px 24px;
+  background-color: ${props => props.theme.colors.white};
   border-radius: ${props => props.theme.effects.radius};
   transition: all 0.15s ease;
   position: relative;

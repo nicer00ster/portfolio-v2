@@ -24,11 +24,10 @@ function Projects() {
             <Hero
                 heading="My Projects"
                 subheading="Recognized for developing robust back-end structures and producing accessible, responsive designs.">
-                {/*<Card fade="zoom-in-left" data-aos-delay="100"/>*/}
-                {/*<Card fade="zoom-in-left" data-aos-delay="200"/>*/}
-                {/*<Card fade="zoom-in-left" data-aos-delay="300"/>*/}
             </Hero>
-            <Section position="center" rotate="12deg">
+            <Section
+                position="center"
+                rotate="10deg">
                 {state.isMobile ?
                     <StyledMobileCardContainer>
                         {projectData.map(item => (

@@ -140,6 +140,7 @@ const StyledCheckmark = styled.div`
     justify-content: center;
     flex-direction: column;
     position: absolute;
+    z-index: 9999;
     & svg {
       color: #87DFD6;
       width: 100%;

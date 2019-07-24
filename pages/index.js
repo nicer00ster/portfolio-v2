@@ -25,17 +25,23 @@ function Home() {
                         'i enjoy helping others',
                         'staying physically active',
                         'exploring the world',
-                    ]} data-aos="zoom-in-right" data-aos-delay="100" />
+                    ]}
+                    data-aos="zoom-in-right"
+                    data-aos-delay="100" />
                 <Spotlight data-aos="zoom-in-up" />
             </Hero>
-            <Section position="right" rotate="12deg">
+            <Section
+                position="right"
+                rotate="10deg">
                 <Terminal
                     buttonOne="#faa1bc"
                     buttonTwo="#ffeaa7"
                     buttonThree="#80dad3"
                 />
             </Section>
-            <Section position="left" rotate="-12deg">
+            <Section
+                position="left"
+                rotate="-10deg">
                 <Sparkles />
                 <Tree />
             </Section>

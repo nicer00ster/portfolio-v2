@@ -38,7 +38,7 @@ const StyledGridLink = styled.div`
   justify-content: center;
   align-items: center;
   left: calc(100% - 125px);
-  border-radius: 50%;
+  border-radius: ${props => props.theme.effects.radius};
 `;
 
 const StyledGridContent = styled.div`
@@ -56,6 +56,8 @@ const StyledGridClose = styled.div`
   top: 30px;
   right: 30px;
   font-size: 20px;
+  padding: 1rem;
+  border-radius: ${props => props.theme.effects.radius};
   color: ${props => props.theme.colors.lightBlack};
 `;
 

@@ -79,7 +79,7 @@ const StyledProjectCard = styled(StyledCard)`
     opacity: 0.6;
     z-index: 1;
     clip-path: polygon(0 0, 100% 0, 100% calc(50% - 2vw), 0% 50%);
-    transition: clip-path, bottom, opacity, filter, .75s ease;
+    transition: all .75s ease;
     ${props => props.theme.mediaQuery.tablet`
         clip-path: polygon(0 0, 100% 0, 100% calc(50% - 8vw), 0% 50%);
     `};
@@ -106,10 +106,14 @@ const StyledProjectCard = styled(StyledCard)`
     width: 100%;
     height: 100%;
     position: absolute;
-    transition: clip-path .75s;
+    transition: all .75s ease;
     ${props => props.theme.mediaQuery.tablet`
         clip-path: polygon(0 0, 100% 0, 100% calc(50% - 8vw), 0% 50%);
     `};
+  }
+  & .card-description {
+    transition: transform 0.75s ease;
+    transform: translateY(0px);
   }
   ${props => props.active === "false" && css`&:hover, &:active {
       bottom: 4px;
@@ -118,10 +122,9 @@ const StyledProjectCard = styled(StyledCard)`
         clip-path: polygon(0 0, 100% 0, 100% calc(75%), 0% 75%);
       }
       & .card-image {
-        filter: unset;
         clip-path: polygon(0 0, 100% 0, 100% calc(75%), 0% 75%);
       }
-      & .card-text, .card-tooling {
+      & .card-text, .card-tooling, .card-description {
         transform: translateY(200px);
         opacity: 0;
       }
@@ -278,7 +281,6 @@ const StyledMobileCard = styled(StyledCard)`
         clip-path: polygon(0 0, 100% 0, 100% calc(75%), 0% 75%);
       }
       & .card-image {
-        filter: contrast(100%);
         clip-path: polygon(0 0, 100% 0, 100% calc(75%), 0% 75%);
       }
       & .card-text, .card-tooling {
