@@ -1,6 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { parseCookies } from 'nookies';
+import Meta from '../components/meta';
 
 export default class CustomDocument extends Document {
     static async getInitialProps(ctx) {
@@ -32,6 +33,7 @@ export default class CustomDocument extends Document {
     render() {
         return (
             <html lang="en">
+                <Meta />
                 <Head>
                     {this.props.styles}
                 </Head>

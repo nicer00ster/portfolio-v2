@@ -1,9 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
-import { useSpring } from 'react-spring';
+import { useEffect, useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import AOS from "aos";
 
-import Meta from '../meta';
 import Header from '../nav';
 import Footer from '../footer';
 import Background from '../kit/background';
@@ -43,7 +41,6 @@ function Layout(props) {
           />
           <Header />
           <LayoutStyles menuOpen={state.menuOpen}>
-              <Meta />
               <GlobalStyles menuOpen={state.menuOpen} />
               <Toast children={add => (state.toastRef.current = add)} />
               {props.children}
