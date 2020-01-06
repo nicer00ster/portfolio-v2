@@ -30,6 +30,7 @@
     "PASSWORD": "@email-password",
     "CLIENT_ID": "@client-id",
     "CLIENT_SECRET": "@client-secret",
-    "REFRESH_TOKEN": "@refresh-token"
+    "REFRESH_TOKEN": "@refresh-token",
+    "GTAG": "@portfolio-gtag"
   }
 }

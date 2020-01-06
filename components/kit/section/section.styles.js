@@ -9,6 +9,9 @@ const StyledSection = styled.section`
   min-height: 400px;
   margin: 15vh 1rem;
   position: relative;
+  ${props => props.theme.mediaQuery.phone`
+    margin: 10vh 1rem;
+  `};
 `;
 
 const StyledSectionChildren = styled.div`
@@ -26,6 +29,9 @@ const StyledSectionChildren = styled.div`
   min-height: 600px;
   ${props => props.theme.mediaQuery.tablet`
     justify-content: center;
+  `};
+  ${props => props.theme.mediaQuery.phone`
+    min-height: auto;
   `};
 `;
 

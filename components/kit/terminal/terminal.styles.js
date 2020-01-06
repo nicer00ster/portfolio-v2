@@ -25,6 +25,9 @@ const StyledTerminal = styled.div`
     ${props => props.theme.mediaQuery.tablet`
         width: 100%;
     `}
+    ${props => props.theme.mediaQuery.phone`
+        height: 42vh;
+    `}
 `;
 
 const StyledTerminalToolbar = styled.div`

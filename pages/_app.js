@@ -1,10 +1,12 @@
 import App, { Container } from 'next/app';
+import Router from 'next/router';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
 import Intro from '../components/intro';
 import Layout from '../components/layout';
 import Loading from '../components/kit/loading';
 import AppProvider from '../components/provider';
+import { trackPageView } from '../helpers';
 
 class CustomApp extends App {
     state = {
@@ -33,6 +35,10 @@ class CustomApp extends App {
     }
 
     componentDidMount() {
+        Router.onRouteChangeComplete = url => {
+            trackPageView(url);
+        };
+
         this.setState({
             isMounted: true,
         });

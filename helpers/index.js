@@ -9,6 +9,18 @@ function handleScroll(el, setter) {
     }
 }
 
+function trackPageView(url) {
+    try {
+        window.gtag('config', process.env.GTAG, {
+            page_location: url
+        });
+    } catch (error) {
+        // silences the error in dev mode
+        // and/or if gtag fails to load
+    }
+}
+
 export {
     handleScroll,
+    trackPageView,
 };

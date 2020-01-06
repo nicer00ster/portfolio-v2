@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Alex Busch",
   "license": "ISC",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "node server.js",
     "build": "next build",

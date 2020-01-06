@@ -30,6 +30,18 @@ export default class CustomDocument extends Document {
             sheet.seal();
         }
     }
+
+    setGoogleTags() {
+        return {
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', '${process.env.GTAG}');
+            `
+        };
+    }
     render() {
         return (
             <html lang="en">
@@ -41,6 +53,14 @@ export default class CustomDocument extends Document {
                     <Main />
                     {!this.props.cookie.token && <canvas id="intro" />}
                     <NextScript />
+                    <>
+                        <script
+                            async
+                            src="https://www.googletagmanager.com/gtag/js?id=UA-155364015-1"
+                        />
+                        {/* We call the function above to inject the contents of the script tag */}
+                        <script dangerouslySetInnerHTML={this.setGoogleTags()} />
+                    </>
                 </body>
             </html>
         );

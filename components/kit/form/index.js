@@ -171,7 +171,7 @@ function Form() {
                         Message
                     </label>
                 </StyledInput>
-                <Button type="submit" text="Get In Touch" loading={isLoading} />
+                <Button type="submit" text="Send" loading={isLoading} />
             </fieldset>
         </StyledForm>
     );
