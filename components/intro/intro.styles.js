@@ -26,18 +26,33 @@ const StyledIntroItem = styled(animated.div)`
     background-position: center center;
     background-repeat: no-repeat;
     will-change: transform;
-    ${props => props.item === 'cover' ? `
+    ${props => props.item === 'cover' ? css`
         min-width: 60ch;
         min-height: 60ch;
         width: 35vw;
         height: 35vw;
-        max-width: 100ch;
+        max-width: 100%;
         max-height: 100ch;
+        ${props => props.theme.mediaQuery.tablet`
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          & svg {
+            width: 40ch;
+            height: 40ch;
+          }
+        `};
+        }
     `: ''};
     ${props => props.item === 'moon' ? css`
         & svg {
             width: 35ch;
             height: 35ch;
+            ${props => props.theme.mediaQuery.tablet`
+                width: 30ch;
+                height: 30ch;
+            `};
             & path {
                 transition: all 0.25s ease;
             }
@@ -54,19 +69,30 @@ const StyledIntroItem = styled(animated.div)`
         }
         bottom: 50%;
      `: ''};
-    ${props => props.item === 'meteor' ? `
+    ${props => props.item === 'meteor' ? css`
         & svg {
             opacity: 0.9;
             width: 25ch;
             height: 25ch;
+            ${props => props.theme.mediaQuery.tablet`
+                width: 15ch;
+                height: 15ch;
+            `};
         }
         left: 35%;
         z-index: -1;
+        ${props => props.theme.mediaQuery.tablet`
+            left: 60%;
+        `};
     `: ''};
     ${props => props.item === 'asteroid' ? css`
         & svg {
             width: 25ch;
             height: 25ch;
+            ${props => props.theme.mediaQuery.tablet`
+                width: 15ch;
+                height: 15ch;
+            `};
             & path, circle {
                 transition: all 0.25s ease;
             }
@@ -110,6 +136,9 @@ const StyledIntroButton = styled.a`
       z-index: 1;
       font-weight: normal;
       transition: all 0.25s ease;
+      ${props => props.theme.mediaQuery.tablet`
+        font-size: 2em;
+      `};
       &:before {
        content: "< ";
        transition: opacity 0.25s ease-in;

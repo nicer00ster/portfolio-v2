@@ -31,24 +31,31 @@ function Layout(props) {
         AOS.init();
         AOS.refresh();
     }, []);
-
-    return (
-      <ThemeProvider theme={theme}>
-          <>
-          <Background
-              rotate="-12deg"
-              menuOpen={state.menuOpen}
-          />
-          <Header />
-          <LayoutStyles menuOpen={state.menuOpen}>
-              <GlobalStyles menuOpen={state.menuOpen} />
-              <Toast children={add => (state.toastRef.current = add)} />
-              {props.children}
-              <Footer />
-          </LayoutStyles>
-          </>
-      </ThemeProvider>
-    );
+    if (props.isIntro) {
+        return (
+            <ThemeProvider theme={theme}>
+                {props.children}
+            </ThemeProvider>
+        );
+    } else {
+        return (
+            <ThemeProvider theme={theme}>
+                <>
+                    <Background
+                        rotate="-12deg"
+                        menuOpen={state.menuOpen}
+                    />
+                    <Header />
+                    <LayoutStyles menuOpen={state.menuOpen}>
+                        <GlobalStyles menuOpen={state.menuOpen} />
+                        <Toast children={add => (state.toastRef.current = add)} />
+                        {props.children}
+                        <Footer />
+                    </LayoutStyles>
+                </>
+            </ThemeProvider>
+        );
+    }
 }
 
 export default Layout;

@@ -62,7 +62,13 @@ class CustomApp extends App {
                 </Container>
             );
         } else {
-            return <Intro removeCookie={this.removeCookie} />
+            return (
+                <AppProvider>
+                    <Layout isIntro={true}>
+                        <Intro removeCookie={this.removeCookie} />
+                    </Layout>
+                </AppProvider>
+            );
         }
 
     }
