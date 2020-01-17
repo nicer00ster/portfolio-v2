@@ -17,7 +17,6 @@ import { AppContext } from '../../components/provider';
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
-
 function Header() {
     const { state, setMenuOpen } = useContext(AppContext);
     const [isScrolled, setIsScrolled] = useState(false);

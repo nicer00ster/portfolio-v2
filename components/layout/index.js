@@ -6,6 +6,7 @@ import Header from '../nav';
 import Footer from '../footer';
 import Background from '../kit/background';
 import Toast from '../kit/toast';
+import SkipLink from "../kit/skipLink";
 import { AppContext } from '../provider';
 
 import {
@@ -41,12 +42,13 @@ function Layout(props) {
         return (
             <ThemeProvider theme={theme}>
                 <>
+                    <SkipLink />
                     <Background
                         rotate="-12deg"
                         menuOpen={state.menuOpen}
                     />
                     <Header />
-                    <LayoutStyles menuOpen={state.menuOpen}>
+                    <LayoutStyles id="main" menuOpen={state.menuOpen}>
                         <GlobalStyles menuOpen={state.menuOpen} />
                         <Toast children={add => (state.toastRef.current = add)} />
                         {props.children}
