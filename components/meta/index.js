@@ -34,7 +34,6 @@ function Meta() {
             <link rel="manifest" href="/static/site.webmanifest" />
             <link rel="preload" href="/static/fonts/Raleway.ttf" as="font" type="font/ttf" crossOrigin="true" />
             <link rel="preload" href="/static/fonts/Trirong.ttf" as="font" type="font/ttf" crossOrigin="true" />
-            <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
             <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         </Head>
     );
