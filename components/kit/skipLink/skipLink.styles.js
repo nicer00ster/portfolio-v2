@@ -2,18 +2,15 @@ import styled from "styled-components";
 
 const StyledSkipLink = styled.a`
   position: absolute;
-  left: -999px;
-  width: 1px;
-  height: 1px;
-  top: auto;
+  top: -40px;
+  left: 0;
+  background: #000000;
+  color: ${props => props.theme.colors.white};
+  padding: 8px;
+  z-index: 100;
 
   &:focus {
-    color: ${props => props.theme.colors.black};
-    display: inline-block;
-    height: auto;
-    width: auto;
-    position: static;
-    margin: auto;
+    top: 0;
   }
 `;
 

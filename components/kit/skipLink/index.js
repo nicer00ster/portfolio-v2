@@ -4,7 +4,7 @@ import {
 
 function SkipLink() {
     return (
-        <StyledSkipLink href="#main">
+        <StyledSkipLink className="skip-link" href="#main">
             Skip to Content
         </StyledSkipLink>
     );
