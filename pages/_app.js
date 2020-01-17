@@ -50,7 +50,7 @@ class CustomApp extends App {
     render() {
         const { Component, pageProps } = this.props;
         if(!this.state.isMounted) {
-            return <Loading />;
+            return <Loading wantsLogoLoading={false} />;
         } else if(!pageProps.cookie) {
             return (
                 <Container>

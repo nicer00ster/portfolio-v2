@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import AOS from "aos";
 
@@ -35,6 +35,7 @@ function Layout(props) {
     if (props.isIntro) {
         return (
             <ThemeProvider theme={theme}>
+                <SkipLink />
                 {props.children}
             </ThemeProvider>
         );

@@ -14,9 +14,10 @@ const StyledIntro = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    position: absolute;
+    position: fixed;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 `;
 
 const StyledIntroItem = styled(animated.div)`

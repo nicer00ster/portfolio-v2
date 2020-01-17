@@ -1,3 +1,4 @@
+import React from 'react';
 import {
     StyledSkipLink,
 } from './skipLink.styles';

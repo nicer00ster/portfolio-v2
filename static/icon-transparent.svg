@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="654px" height="663px" viewBox="0 0 654 663" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>transparent-icon</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="1">
+        <g id="transparent-icon" transform="translate(6.000000, 18.000000)" fill="#FFFFFF" fill-rule="nonzero" stroke="#1F222E" stroke-width="8">
+            <g id="Group" transform="translate(321.000000, 320.500000) scale(-1, 1) rotate(-180.000000) translate(-321.000000, -320.500000) ">
+                <path d="M160,321 C72,145 0,0.8 0,0.5 C0,0.2 39.6,0.1 88.1,0.2 L176.1,0.5 L248.3,159.2 C288,246.5 320.7,318 321,318 C321.3,318 325.7,309.7 330.7,299.6 L339.9,281.1 L315.1,220.8 L290.3,160.5 L345.4,160.2 L400.5,160 L440.5,80 L480.5,0 L561.2,0 C605.7,0 642,0.2 642,0.5 C642,2.1 321.8,641 321,641 C320.5,641 248,497 160,321 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSpring } from 'react-spring';
-
 import {
     StyledIntro,
     StyledIntroItem,
@@ -37,12 +36,15 @@ function Intro() {
             <StyledIntroButton href="/">Alex Busch</StyledIntroButton>
             <Sparkles style={{ zIndex: '-1' }}/>
             <style jsx global>{`
-                body {
-                    overflow: hidden;
-                    background-color: #1f222e;
-                    padding: 0;
-                    margin: 0;
-                }
+            *, *:before, *:after {
+              box-sizing: inherit;
+            }
+            body {
+                overflow: hidden;
+                background-color: #1f222e;
+                padding: 0;
+                margin: 0;
+            }
             `}</style>
         </StyledIntro>
     );
