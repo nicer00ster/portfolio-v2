@@ -1,7 +1,6 @@
 import App, { Container } from 'next/app';
 import Router from 'next/router';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
-
 import Intro from '../components/intro';
 import Layout from '../components/layout';
 import Loading from '../components/kit/loading';
@@ -35,9 +34,7 @@ class CustomApp extends App {
     }
 
     componentDidMount() {
-        Router.onRouteChangeComplete = url => {
-            trackPageView(url);
-        };
+        Router.events.on("routeChangeComplete", (url) => trackPageView(url));
 
         this.setState({
             isMounted: true,

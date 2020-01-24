@@ -35,8 +35,10 @@ function Layout(props) {
     if (props.isIntro) {
         return (
             <ThemeProvider theme={theme}>
-                <SkipLink />
-                {props.children}
+                <>
+                    <SkipLink />
+                    {props.children}
+                </>
             </ThemeProvider>
         );
     } else {
